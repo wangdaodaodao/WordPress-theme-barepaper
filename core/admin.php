@@ -672,7 +672,7 @@ function paper_wp_about_section_callback() {
             <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
                 <div style="flex: 0 0 120px; font-weight: 600; color: #1d2327; padding-top: 5px;">BUG反馈</div>
                 <div style="flex: 1; color: #50575e; line-height: 1.6;">
-                    微信号XXXX、Github提交issue、博客https://wdd.pp.ua/blog/下方留言均可
+                    微信号XXXX、Github提交issue、博客https://blog.062200.xyz/下方留言均可
                 </div>
             </div>
             
@@ -680,7 +680,7 @@ function paper_wp_about_section_callback() {
                 <div style="flex: 0 0 120px; font-weight: 600; color: #1d2327; padding-top: 5px;">仓库地址</div>
                 <div style="flex: 1; color: #50575e; line-height: 1.6;">
                     Github：<a href="https://github.com/wangdaodaodao/WordPress-theme-barepaper" target="_blank" style="color: #2271b1; text-decoration: none;">https://github.com/wangdaodaodao/WordPress-theme-barepaper</a><br>
-                    博客：<a href="https://wdd.pp.ua/blog/theme-make/" target="_blank" style="color: #2271b1; text-decoration: none;">https://wdd.pp.ua/blog/</a><br>
+                    博客：<a href="https://blog.062200.xyz/theme-make/" target="_blank" style="color: #2271b1; text-decoration: none;">https://blog.062200.xyz/</a><br>
                     <span style="color: #646970; font-size: 13px; margin-top: 8px; display: block;">目前的主题还在开发中。<br>仓库内的版本永远是最新版本，如您觉得插件给你带来了帮助，欢迎star！祝您早日达成自己的目标！</span>
                 </div>
             </div>

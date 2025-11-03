@@ -9,7 +9,7 @@
     专 注 于 内 容 的 极 简 WordPress 主 题
   </p>
 
-  [演示](https://wdd.pp.ua/blog/) | [文档](https://github.com/wangdaodaodao/WordPress-theme-barepaper#readme)
+  [演示](https://blog.062200.xyz/) | [文档](https://github.com/wangdaodaodao/WordPress-theme-barepaper#readme)
 
   ![Theme Version](https://img.shields.io/badge/version-1.6.10-blue.svg)
 
@@ -150,12 +150,12 @@
 
 - **微信**: XXXX
 - **Github Issues**: [提交 Issue](https://github.com/wangdaodaodao/WordPress-theme-barepaper/issues)
-- **博客留言**: [https://wdd.pp.ua/blog/](https://wdd.pp.ua/blog/)
+- **博客留言**: [https://blog.062200.xyz/](https://blog.062200.xyz/)
 
 ### 仓库地址
 
 - **Github**: [https://github.com/wangdaodaodao/WordPress-theme-barepaper](https://github.com/wangdaodaodao/WordPress-theme-barepaper)
-- **博客**: [https://wdd.pp.ua/blog/theme-make/](https://wdd.pp.ua/blog/theme-make/)
+- **博客**: [https://blog.062200.xyz/theme-make/](https://blog.062200.xyz/theme-make/)
 
 > 仓库内的版本永远是最新版本，如您觉得主题给您带来了帮助，欢迎 Star！祝您早日达成自己的目标！
 
