@@ -25,7 +25,7 @@
 
             <!-- 广告移到这里防止错位 -->
             <?php
-                // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+                // 功能正在开发中
                 // $paper_wp_ad_settings = get_option( 'paper_wp_ad_settings' );
                 // if ( isset( $paper_wp_ad_settings['show_post_bottom_ad'] ) && ... ) {
                 //     echo '<div class="article-footer">' . wp_kses_post( $paper_wp_ad_settings['post_bottom_ad_code'] ) . '</div>';

@@ -18,7 +18,7 @@ function paper_wp_scripts() {
         $paper_wp_settings = get_option('paper_wp_theme_settings', []);
     }
     
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // $enable_css_async = !empty($performance_settings['enable_css_async_loading']);
     // add_action('wp_head', $enable_css_async ? 'paper_wp_load_css_async' : 'paper_wp_load_css_sync', 2);
     
@@ -31,13 +31,13 @@ function paper_wp_scripts() {
     }
 
     // 内联脚本优化 - 减少DOM操作
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // add_action('wp_head', function() use ($effects_settings) {
     //     if (!empty($effects_settings['show_theme_toggle'])) { ... }
     // }, 1);
 
     // 效果脚本条件加载
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // if (!empty($effects_settings['show_ribbons_effect'])) {
     //     wp_enqueue_script('ribbons', ...);
     // }
@@ -45,13 +45,13 @@ function paper_wp_scripts() {
     //     wp_enqueue_script('cursor', ...);
     // }
 
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // if (!empty($paper_wp_settings['show_recent_album'])) {
     //     wp_enqueue_style('paper-sidebar-album', ...);
     //     wp_enqueue_script('paper-sidebar-album', ...);
     // }
 
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // if (!empty($effects_settings['show_theme_toggle'])) {
     //     wp_enqueue_script('theme-toggle', ...);
     // }
@@ -107,7 +107,7 @@ function paper_wp_scripts() {
 
         $paper_wp_settings = get_option('paper_wp_theme_settings', []);
         if (!empty($paper_wp_settings['show_sponsor_module'])) {
-            // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+            // 功能正在开发中
             // wp_enqueue_script('sponsor-qr', get_template_directory_uri() . '/js/sponsor-qr.js', ['jquery'], BAREPAPER_VERSION, true);
         }
     }
@@ -358,7 +358,7 @@ function paper_wp_inline_critical_css() {
 }
 
 function paper_wp_load_css_async() {
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // $performance_settings = get_option('paper_wp_performance_settings', []);
     // $enable_async_css = !empty($performance_settings['enable_css_async_loading']);
     // if ($enable_async_css) { ... }

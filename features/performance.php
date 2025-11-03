@@ -139,7 +139,7 @@ class Paper_WP_Performance_Optimizer {
      * 注册 Service Worker
      */
     public function register_service_worker(): void {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // if ($this->config['enable_service_worker'] && !is_admin() && is_ssl()) {
         //     echo '<script>...</script>';
         // }
@@ -159,7 +159,7 @@ class Paper_WP_Performance_Optimizer {
      * 处理 Service Worker 文件请求 (sw.js)
      */
     public function serve_sw_file(): void {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // if (get_query_var('paper_wp_sw')) {
         //     header('Content-Type: application/javascript; charset=utf-8');
         //     $sw_content = <<<JS ... JS;
@@ -179,7 +179,7 @@ class Paper_WP_Performance_Optimizer {
      * 数据库查询优化
      */
     public function optimize_db_queries(): void {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // if ($this->config['enable_query_optimization']) {
         //     add_filter('pre_get_posts', [$this, 'aggressive_query_optimization']);
         //     add_filter('get_terms_args', [$this, 'aggressive_terms_optimization'], 10, 2);
@@ -251,7 +251,7 @@ class Paper_WP_Performance_Optimizer {
     private function get_optimization_config(): array {
         $settings = get_option(self::OPTION_NAME, []);
 
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // 所有性能优化选项默认关闭
         return [
             'defer_scripts'             => true, // 默认开启 defer

@@ -44,7 +44,7 @@
 
     <?php if ( isset( $paper_wp_settings['show_sponsor_module'] ) && $paper_wp_settings['show_sponsor_module'] ) : ?>
     <?php
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // <div class="sponsor-qr">...</div>
     ?>
     <?php endif; ?>

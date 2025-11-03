@@ -630,7 +630,7 @@ function paper_wp_execute_cache_clear($group) {
  * 缓存管理页面回调函数
  */
 function paper_wp_cache_section_callback() {
-    // 功能已禁用 - 显示开发提示
+    // 功能正在开发中
     ?>
     <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 20px; margin-top: 20px; box-shadow: 0 1px 1px rgba(0,0,0,.04);">
         <h3 style="margin-top: 0; margin-bottom: 15px; color: #856404;">⚠️ 开发提示</h3>
@@ -645,9 +645,9 @@ function paper_wp_cache_section_callback() {
             </p>
         </div>
     </div>
-    
+
     <?php
-    // 功能已禁用 - 缓存管理界面已移除，仅显示开发提示
+    // 功能正在开发中
 }
 
 /**
@@ -750,7 +750,7 @@ function paper_wp_performance_section_callback() {
  * 友情链接列表回调函数
  */
 function paper_wp_friend_links_list_callback() {
-    // 功能已禁用 - 友情链接功能已禁用
+    // 功能正在开发中
     ?>
     <div style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 15px; margin-top: 10px;">
         <p style="margin: 0; color: #856404; font-size: 14px;">

@@ -25,32 +25,32 @@ $paper_wp_settings = get_option('paper_wp_theme_settings');
 
     // 推荐文章
     if (!empty($paper_wp_settings['show_recommended_posts'])) {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // paper_wp_render_ranked_posts_widget('推荐文章', ...);
     }
 
     // 最近文章相册
     if (!empty($paper_wp_settings['show_recent_album'])) {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // $album_html = get_transient('paper_wp_sidebar_recent_album');
         // if ($album_html === false) { ... }
     }
 
     // 阅读排行
     if (!empty($paper_wp_settings['show_reading_ranking'])) {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // paper_wp_render_ranked_posts_widget('阅读排行', ...);
     }
 
     // 点赞排行
     if (!empty($paper_wp_settings['show_like_ranking'])) {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // paper_wp_render_ranked_posts_widget('点赞排行', ...);
     }
 
     // 评论排行 (已优化查询)
     if (!empty($paper_wp_settings['show_comment_ranking'])) {
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // global $wpdb;
         // $commented_post_ids = $wpdb->get_col("...");
         // paper_wp_render_ranked_posts_widget('评论排行', ...);
@@ -110,7 +110,7 @@ $paper_wp_settings = get_option('paper_wp_theme_settings');
         <h3 class="widget-title">友情链接</h3>
         <div class="friend-links-container">
             <?php
-            // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+            // 功能正在开发中
             // $friend_links = get_option('paper_wp_friend_links', []);
             // if (!empty($friend_links)) { ... }
             ?>
@@ -123,7 +123,7 @@ $paper_wp_settings = get_option('paper_wp_theme_settings');
         <h3 class="widget-title">其他</h3>
         <ul class="widget-list sidebar-links-list">
             <?php
-            // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+            // 功能正在开发中
             // if (!is_user_logged_in()) { ... }
             // get_feed_link(); paper_wp_get_sitemap_url();
             ?>
@@ -132,7 +132,7 @@ $paper_wp_settings = get_option('paper_wp_theme_settings');
     <?php endif; ?>
 
     <?php
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // $paper_wp_ad_settings = get_option('paper_wp_ad_settings');
     // if (!empty($paper_wp_ad_settings['show_sidebar_ad']) && !empty($paper_wp_ad_settings['sidebar_ad_code'])) : ...
     // <?php endif; ?>

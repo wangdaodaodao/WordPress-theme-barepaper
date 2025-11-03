@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-12">
                     <?php
-                    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+                    // 功能正在开发中
                     // if ( isset( $paper_wp_ad_settings['show_header_ad'] ) && ... ) {
                     //     echo '<div class="header-banner">' . wp_kses_post( $paper_wp_ad_settings['header_ad_code'] ) . '</div>';
                     // }
@@ -51,7 +51,7 @@
                 </div>
                 <?php if ( isset( $paper_wp_settings['show_poetry_recommendation'] ) && $paper_wp_settings['show_poetry_recommendation'] ) : ?>
                 <?php
-                // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+                // 功能正在开发中
                 // <div class="site-poetry ..."><span id="jinrishici-sentence">...</span></div>
                 ?>
                 <?php endif; ?>

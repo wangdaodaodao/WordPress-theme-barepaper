@@ -8,7 +8,7 @@
         <?php
         $paper_wp_settings = get_option('paper_wp_theme_settings');
         if (!empty($paper_wp_settings['show_blog_stats'])) {
-            // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+            // 功能正在开发中
             // paper_wp_render_footer_stats();
         } else {
             // 默认显示简版版权信息（使用WordPress时区）
@@ -17,7 +17,7 @@
         ?>
 
         <?php
-        // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+        // 功能正在开发中
         // $paper_wp_effects_settings = get_option( 'paper_wp_effects_settings' );
         // if ( !empty( $paper_wp_effects_settings['show_theme_toggle'] ) ) : ...
         // <?php endif; ?>

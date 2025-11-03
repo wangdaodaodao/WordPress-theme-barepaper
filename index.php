@@ -4,10 +4,10 @@
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <h2 class="post-title" itemprop="name headline">
-            <a itemprop="url" href="<?php the_permalink(); ?>"><?php the_title(); ?><?php 
+            <a itemprop="url" href="<?php the_permalink(); ?>"><?php the_title(); ?><?php
             $settings = get_option('paper_wp_theme_settings', []);
             if (!empty($settings['enable_sticky_posts'])) {
-                // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+                // 功能正在开发中
                 // $is_sticky = get_post_meta(get_the_ID(), '_paper_wp_sticky', true);
                 // if ($is_sticky === '1') { echo '...'; }
             }

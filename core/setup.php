@@ -18,7 +18,7 @@ function paper_wp_setup() {
 add_action('after_setup_theme', 'paper_wp_setup');
 
 function paper_wp_setup_editor() {
-    // 功能已禁用 - 具体逻辑已移除，保留函数调用结构
+    // 功能正在开发中
     // $editor_settings = get_option('paper_wp_editor_settings');
     // if (!empty($editor_settings['disable_default_editor'])) {
     //     add_filter('use_block_editor_for_post', '__return_false');
