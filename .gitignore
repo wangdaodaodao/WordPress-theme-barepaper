@@ -1,0 +1,73 @@
+# WordPress
+wp-config.php
+wp-config-local.php
+wp-config-production.php
+wp-config-staging.php
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Logs
+*.log
+logs/
+wp-content/debug.log
+wp-content/uploads/debug.log
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+.env.*.local
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Composer
+vendor/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+dist/
+
+# Backup files
+*.bak
+*.backup
+*.orig
+
+# Screenshots (if not needed)
+screenshot.png
+
+# Custom uploads (if sensitive)
+wp-content/uploads/
+wp-content/blogs.dir/
+
+# Cache files
+wp-content/cache/
+wp-content/uploads/cache/
+
+# Theme specific
+# Add any theme-specific files that shouldn't be committed

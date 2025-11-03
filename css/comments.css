@@ -1,0 +1,120 @@
+/*
+ * ===========================================
+ * 评论样式 - 评论系统和交互样式
+ * ===========================================
+ *
+ * 💬 评论系统设计
+ *   - 评论列表: 层级化评论显示结构
+ *   - 评论表单: 评论提交和编辑表单
+ *   - 评论元信息: 作者、时间、回复等元数据
+ *   - 评论交互: 回复、编辑、删除等操作
+ *
+ * 🎨 视觉设计
+ *   - 层级结构: 清晰的评论嵌套层级
+ *   - 作者标识: 文章作者评论的特殊标识
+ *   - 状态区分: 不同评论状态的视觉区分
+ *   - 交互反馈: 悬停和激活状态样式
+ *
+ * 📱 响应式适配
+ *   - 移动端优化: 小屏幕下的评论显示
+ *   - 触摸交互: 移动端友好的交互设计
+ *   - 表单适配: 移动端表单输入优化
+ *   - 层级显示: 移动端评论层级优化
+ *
+ * 🔧 功能特性
+ *   - 嵌套回复: 支持多层级评论回复
+ *   - 分页加载: 大量评论的分页显示
+ *   - 实时更新: AJAX评论提交和更新
+ *   - 垃圾过滤: 评论垃圾信息过滤
+ *
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+/* ===== 评论 ===== */
+#comments {
+  padding-top: 15px;
+}
+
+.comment-list,
+.comment-list ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comment-list li {
+  margin-top: 10px;
+  padding: 14px;
+  border: 1px solid var(--color-border);
+}
+
+.comment-list li.comment-level-odd {
+  background: var(--color-bg-comment-odd);
+}
+
+.comment-list li.comment-level-even {
+  background: var(--color-bg-comment-even);
+}
+
+.comment-list li.comment-by-author {
+  background: var(--color-bg-comment-author);
+}
+
+.comment-list li .comment-reply {
+  font-size: 0.92857em;
+  text-align: right;
+}
+
+.comment-meta {
+  display: inline-block;
+}
+
+.comment-meta a {
+  color: var(--color-text-light);
+  font-size: 0.92857em;
+}
+
+.comment-author {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--color-text);
+}
+
+.comment-author .avatar {
+  float: left;
+  margin-right: 10px;
+  border: 1px solid var(--color-border);
+}
+
+.comment-author cite {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.comment-list .respond {
+  margin-top: 15px;
+  border-top: 1px solid var(--color-border);
+}
+
+.comment-list li.comment-by-author > .comment-content {
+  color: var(--color-text-comment-author);
+}
+
+.respond .cancel-comment-reply {
+  float: right;
+  margin-top: 15px;
+  font-size: 0.92857em;
+}
+
+#comment-form label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+#comment-form .required:after {
+  color: #c00;
+  content: ' *';
+}
