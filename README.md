@@ -11,6 +11,8 @@
 
   [演示](https://blog.062200.xyz/) | [文档](https://github.com/wangdaodaodao/WordPress-theme-barepaper#readme)
 
+  [English](README-en.md) | [中文](README.md)
+
   ![Theme Version](https://img.shields.io/badge/version-1.6.10-blue.svg)
 
 </div>
