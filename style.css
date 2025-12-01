@@ -4,7 +4,7 @@ Theme URI:
 Author: wangdaodao
 Author URI:
 Description:
-Version: 1.6.10
+Version: 9.3.1
 License:
 */
 
@@ -12,7 +12,6 @@ License:
 
 @charset "UTF-8";
 
-/* 主题变量已移至 variables.css 文件，避免重复定义 */
 
 html {
     font-family: sans-serif;

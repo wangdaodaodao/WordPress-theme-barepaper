@@ -12,7 +12,7 @@
 
   [English](README-en.md) | [中文](README.md)
 
-  ![Theme Version](https://img.shields.io/badge/version-1.6.10-blue.svg)
+  ![Theme Version](https://img.shields.io/badge/version-1.6.10-blue.svg) ![WordPress Version](https://img.shields.io/badge/wordpress-6.8.3+-blue.svg)
 
 </div>
 
@@ -138,7 +138,7 @@ The theme supports Markdown syntax. After enabling the WDD-tinymce plugin, you c
 
 ## 🔧 System Requirements
 
-- WordPress 5.0 or higher
+- WordPress 6.8.3 compatible (minimum 5.0)
 - PHP 7.4 or higher
 - MySQL 5.6 or higher (or MariaDB 10.0 or higher)
 

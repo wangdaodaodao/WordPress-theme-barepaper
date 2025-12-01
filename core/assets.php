@@ -23,7 +23,31 @@ function paper_wp_scripts() {
     // add_action('wp_head', $enable_css_async ? 'paper_wp_load_css_async' : 'paper_wp_load_css_sync', 2);
     
     add_action('wp_head', 'paper_wp_inline_critical_css', 1);
-    add_action('wp_head', 'paper_wp_load_css_sync', 2);
+
+    // Enqueue main stylesheets using WordPress standard practice
+    $theme_uri = get_template_directory_uri();
+    $version = defined('BAREPAPER_VERSION') ? BAREPAPER_VERSION : false;
+
+    $styles = [
+        'paper-variables' => '/css/variables.css',
+        'paper-reset'     => '/css/reset.css',
+        'paper-grid'      => '/css/grid.css',
+        'paper-base'      => '/css/base.css',
+        'paper-header'    => '/css/header.css',
+        'paper-post'      => '/css/post.css',
+        'paper-comments'  => '/css/comments.css',
+        'paper-sidebar'   => '/css/sidebar.css',
+        'paper-components'=> '/css/components.css',
+        'paper-utilities' => '/css/utilities.css',
+        'paper-responsive'=> '/css/responsive.css'
+    ];
+
+    $last_handle = null;
+    foreach ($styles as $handle => $path) {
+        $deps = $last_handle ? [$last_handle] : [];
+        wp_enqueue_style($handle, $theme_uri . $path, $deps, $version);
+        $last_handle = $handle;
+    }
 
     // 条件加载脚本，减少不必要的资源加载
     if (is_front_page() || is_single()) {
@@ -181,26 +205,10 @@ function paper_wp_ensure_jquery() {
 }
 add_action('wp_enqueue_scripts', 'paper_wp_ensure_jquery', 1);
 
-function paper_wp_load_css_sync() {
-    $css_files = [
-        'variables' => get_template_directory_uri() . '/css/variables.css',
-        'reset' => get_template_directory_uri() . '/css/reset.css',
-        'grid' => get_template_directory_uri() . '/css/grid.css',
-        'base' => get_template_directory_uri() . '/css/base.css',
-        'header' => get_template_directory_uri() . '/css/header.css',
-        'post' => get_template_directory_uri() . '/css/post.css',
-        'comments' => get_template_directory_uri() . '/css/comments.css',
-        'sidebar' => get_template_directory_uri() . '/css/sidebar.css',
-        'components' => get_template_directory_uri() . '/css/components.css',
-        'utilities' => get_template_directory_uri() . '/css/utilities.css',
-        'responsive' => get_template_directory_uri() . '/css/responsive.css'
-    ];
-    
-    foreach ($css_files as $handle => $url) {
-        $ver = BAREPAPER_VERSION;
-        echo "<link rel='stylesheet' href='{$url}?ver={$ver}'>";
-    }
-}
+/*
+ * Deprecated: The function paper_wp_load_css_sync() has been replaced by the wp_enqueue_style logic
+ * directly within the paper_wp_scripts() function to follow WordPress best practices.
+ */
 
 function paper_wp_get_cached_tags() {
     $cache_key = 'paper_wp_tags_cloud';

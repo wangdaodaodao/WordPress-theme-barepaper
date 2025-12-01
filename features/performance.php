@@ -330,7 +330,7 @@ add_action('after_switch_theme', 'paper_wp_theme_activation');
  * 修改主页文章预览字数
  * 优化: 2000 个字符太长了，可能导致内存问题和页面加载缓慢。调整为150个字符。
  */
-add_filter('excerpt_length', fn() => 2000, 999);
+add_filter('excerpt_length', fn() => 150, 999);
 
 /**
  * 获取文章字数统计 (保持不变，但注意这是字符数)

@@ -92,8 +92,9 @@ function barepaper_render_archive_stats() {
     echo '</h2>';
 }
 
-// --- Heatmap Data Preparation ---
+// --- Data Preparation for Heatmap and Archives ---
 $heatmap_data = array();
+$archives = array();
 $args = array(
     'post_type' => 'post',
     'posts_per_page' => -1,
@@ -104,15 +105,22 @@ $query = new WP_Query($args);
 if ($query->have_posts()) {
     while ($query->have_posts()) {
         $query->the_post();
+        
+        // Populate heatmap data
         $date = get_the_date('Y-m-d');
         if (!isset($heatmap_data[$date])) {
             $heatmap_data[$date] = 0;
         }
         $heatmap_data[$date]++;
+
+        // Populate archives data
+        $year = get_the_date('Y');
+        $month = get_the_date('m');
+        $archives[$year][$month][] = '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
     }
 }
 wp_reset_postdata();
-// --- End Heatmap Data ---
+// --- End Data Preparation ---
 
 get_header();
 ?>
@@ -132,23 +140,6 @@ get_header();
 
                         <div id="archives">
                             <?php
-                            $archives = array();
-                            $args = array(
-                                'post_type' => 'post',
-                                'posts_per_page' => -1,
-                                'ignore_sticky_posts' => 1
-                            );
-                            $query = new WP_Query($args);
-
-                            if ($query->have_posts()) {
-                                while ($query->have_posts()) {
-                                    $query->the_post();
-                                    $year = get_the_date('Y');
-                                    $month = get_the_date('m');
-                                    $archives[$year][$month][] = '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
-                                }
-                            }
-                            wp_reset_postdata();
 
                             foreach ($archives as $year => $months) {
                                 echo '<h3 class="year custom-container alert">' . $year . '</h3>';
