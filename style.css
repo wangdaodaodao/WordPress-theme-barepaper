@@ -1,10 +1,10 @@
 /*
-Theme Name: barepaper
+Theme Name: BarePaper
 Theme URI:
 Author: wangdaodao
 Author URI:
-Description:
-Version: 9.3.1
+Description:修复错误
+Version: 3.1.0
 License:
 */
 
@@ -12,23 +12,40 @@ License:
 
 @charset "UTF-8";
 
+/* 主题变量已移至 variables.css 文件，避免重复定义 */
 
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-size: 100%; /* 优化：提升可访问性 */
+    font-size: 100%;
+    /* 优化：提升可访问性 */
 }
 
 body {
     margin: 0;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
     display: block;
 }
 
-audio, canvas, progress, video {
+audio,
+canvas,
+progress,
+video {
     display: inline-block;
     vertical-align: baseline;
 }
@@ -38,7 +55,8 @@ audio:not([controls]) {
     height: 0;
 }
 
-[hidden], template {
+[hidden],
+template {
     display: none;
 }
 
@@ -46,7 +64,8 @@ a {
     background-color: transparent;
 }
 
-a:active, a:hover {
+a:active,
+a:hover {
     outline: 0;
 }
 
@@ -54,7 +73,8 @@ abbr[title] {
     border-bottom: 1px dotted;
 }
 
-b, strong {
+b,
+strong {
     font-weight: bold;
 }
 
@@ -76,7 +96,8 @@ small {
     font-size: 80%;
 }
 
-sub, sup {
+sub,
+sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
@@ -112,12 +133,19 @@ pre {
     overflow: auto;
 }
 
-code, kbd, pre, samp {
-    font-family: monospace,monospace;
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
     font-size: 1em;
 }
 
-button, input, optgroup, select, textarea {
+button,
+input,
+optgroup,
+select,
+textarea {
     color: inherit;
     font: inherit;
     margin: 0;
@@ -127,20 +155,26 @@ button {
     overflow: visible;
 }
 
-button, select {
+button,
+select {
     text-transform: none;
 }
 
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
     -webkit-appearance: button;
     cursor: pointer;
 }
 
-button[disabled], html input[disabled] {
+button[disabled],
+html input[disabled] {
     cursor: default;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
@@ -149,12 +183,14 @@ input {
     line-height: normal;
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
 }
 
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
     height: auto;
 }
 
@@ -163,7 +199,8 @@ input[type="search"] {
     box-sizing: content-box;
 }
 
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
@@ -191,13 +228,15 @@ table {
     border-spacing: 0;
 }
 
-td, th {
+td,
+th {
     padding: 0;
 }
 
 /*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
 
 @media print {
+
     *,
     *:before,
     *:after {
@@ -260,8 +299,8 @@ td, th {
         display: none;
     }
 
-    .btn > .caret,
-    .dropup > .btn > .caret {
+    .btn>.caret,
+    .dropup>.btn>.caret {
         border-top-color: #000 !important;
     }
 
@@ -287,7 +326,7 @@ td, th {
 @font-face {
     font-family: 'Glyphicons Halflings';
     src: url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot);
-    src: url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff2) format('woff2'),url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff) format('woff'),url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
+    src: url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff) format('woff'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
 }
 
 .glyphicon {
@@ -317,13 +356,17 @@ td, th {
 
 body {
     font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
+    /* 16px */
     line-height: 1.8;
     color: var(--color-text);
     background-color: var(--color-bg);
 }
 
-input, button, select, textarea {
+input,
+button,
+select,
+textarea {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -334,7 +377,8 @@ a {
     text-decoration: none;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
     color: #23527c;
     text-decoration: underline;
 }
@@ -361,17 +405,16 @@ hr {
     border-top: 1px solid #eee;
 }
 
-/* .sr-only 类已移至 reset.css 统一管理 */
 
 [role="button"] {
     cursor: pointer;
 }
 
-/* .container 类已移至 grid.css 统一管理 */
+/* .container 类已移至 grid.css 统一管理
     margin-bottom: 20px;
     border-radius: 6px;
     padding: 20px;
-}
+} */
 
 .header {
     padding-bottom: 20px;
@@ -380,13 +423,15 @@ hr {
 }
 
 .blog-title {
-    font-size: 2.5rem; /* 40px */
+    font-size: 2.5rem;
+    /* 40px */
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
 .blog-description {
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
+    /* 16px */
     color: #999;
 }
 
@@ -406,7 +451,8 @@ hr {
 }
 
 .navigation-main ul li a {
-    font-size: 1rem; /* 16px */
+    font-size: 1rem;
+    /* 16px */
     color: var(--color-text);
     text-decoration: none;
     padding: 10px 5px;
@@ -470,7 +516,8 @@ hr {
 }
 
 .comment-reply-link {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.75rem;
+    /* 12px */
 }
 
 .comment-form {
@@ -499,7 +546,8 @@ hr {
 .friend-links-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 12px; /* 行间距6px, 列间距12px */
+    gap: 6px 12px;
+    /* 行间距6px, 列间距12px */
 }
 
 .friend-link-item a {
@@ -538,8 +586,6 @@ hr {
 
 /* 广告样式已移至 utilities.css 统一管理 */
 
-/* 短代码样式已移至 shortcode.css 统一管理 */
-
 /* 广告样式已移至 utilities.css 统一管理 */
 
 /* 底部统计信息样式 - 简洁文本风格 */
@@ -563,4 +609,14 @@ hr {
 /* 深色主题适配 */
 [data-theme="dark"] #footer {
     color: #ccc;
+}
+
+/* 页脚 SVG 图标样式 */
+#footer svg {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    vertical-align: middle;
+    opacity: 0.8;
 }
