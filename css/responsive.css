@@ -1,0 +1,150 @@
+/* 响应式设计 - 多设备适配样式 */
+@media (max-width:767px) {
+  body {
+    font-size: 81.25%;
+  }
+
+  #header {
+    padding-bottom: 10px;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin: 0;
+  }
+
+  .navbar input:checked~.nav-list {
+    display: block;
+    position: absolute;
+    right: 5px;
+    z-index: 1000;
+  }
+
+  .navbar input:checked~.nav-list li {
+    clear: both;
+    background-color: var(--color-bg);
+  }
+
+  .navbar .nav-toggle,
+  .support-author .support-btn,
+  .support-content {
+    display: none;
+  }
+
+  .navbar label {
+    display: block;
+    z-index: 2001;
+    /* Ensure it's above other elements */
+    position: relative;
+    cursor: pointer;
+  }
+
+  .navbar .nav-list {
+    display: none;
+    width: 10em;
+    margin-left: 0;
+  }
+
+  .navbar .nav-list li {
+    width: 100%;
+    margin-left: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .navbar .nav-list li+li {
+    border-top: none;
+  }
+
+  .navbar .menu-icon {
+    display: block;
+    width: 36px;
+    height: 36px;
+    line-height: 0;
+  }
+
+  .navbar .menu-icon>svg {
+    margin-top: 0;
+  }
+
+  .navbar .menu-icon>svg path {
+    fill: var(--color-text);
+  }
+
+  .navbar label[for='nav-toggle'] {
+    display: block;
+    float: left;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 2001;
+    position: relative;
+    /* Ensure z-index works */
+  }
+
+  #link li {
+    width: calc(50% - 10px);
+  }
+
+  #link li:nth-child(2n + 1) {
+    margin-left: 0;
+  }
+
+  #fanfou .fanbox {
+    display: block;
+    padding-bottom: 30px;
+  }
+
+  #fanfou span {
+    display: block;
+  }
+
+  #fanfou .photo {
+    width: 100%;
+    display: block;
+    text-align: left;
+  }
+
+  #fanfou em {
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+    color: var(--color-text-light);
+  }
+}
+
+@media (max-width: 768px) {
+
+  #header,
+  .post-title,
+  .closerespond {
+    text-align: center;
+  }
+
+  /* 文章列表页面的post-meta保持居中，但文章页面的article-meta-right保持左对齐 */
+  .post>.post-meta {
+    text-align: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    padding-bottom: 5px;
+    /* Space for scrollbar */
+    justify-content: center;
+    /* Keep centered if possible */
+    display: flex;
+    /* Ensure flex behavior */
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+  }
+
+  /* 排除article-meta-right中的post-meta，保持左对齐 */
+  .article-meta-right .post-meta {
+    text-align: left;
+  }
+
+  .licenses .ad {
+    display: none;
+  }
+}

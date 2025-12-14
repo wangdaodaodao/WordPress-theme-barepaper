@@ -1,0 +1,419 @@
+/*
+ * ===========================================
+ * 编辑器样式 - 内容编辑和代码高亮样式
+ * ===========================================
+ *
+ * ✏️ 编辑器增强
+ *   - 代码高亮: 语法高亮和代码块样式
+ *   - 短代码样式: 自定义短代码的显示样式
+ *   - 编辑器按钮: 编辑器工具栏按钮样式
+ *   - 内容预览: 编辑时的实时预览样式
+ *
+ * 🎨 代码样式
+ *   - 语法高亮: 多种编程语言的语法高亮
+ *   - 代码块: 代码块的背景、边框和间距
+ *   - 行号显示: 代码行号的显示样式
+ *   - 复制功能: 代码复制按钮和交互
+ *
+ * 📝 内容样式
+ *   - 文本格式: 粗体、斜体、下划线等格式
+ *   - 列表样式: 有序列表和无序列表样式
+ *   - 引用样式: 块引用和引用块样式
+ *   - 表格样式: 表格的边框和间距样式
+ *
+ * 🔧 功能特性
+ *   - 主题适配: 浅色/深色主题的代码样式
+ *   - 响应式: 移动端代码显示优化
+ *   - 可访问性: 屏幕阅读器友好的代码结构
+ *   - 性能优化: 代码高亮的加载优化
+ *
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+/* ===== 代码高亮和编辑器样式 ===== */
+code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+}
+
+u {
+    text-decoration: underline;
+    text-decoration-color: #1890ff;
+    text-decoration-thickness: 2px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+table td,
+table th {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+table th {
+    background: #fafafa;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover {
+    background: #f9f9f9;
+}
+
+
+
+
+
+/*
+ * =================================================================
+ * 编辑器工具整合样式 (2025-10-23)
+ * =================================================================
+ */
+
+/* 通用Modal样式 */
+.editor-modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100001;
+    display: none;
+}
+
+.editor-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 650px;
+    width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.editor-modal-content h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.editor-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+    line-height: 1;
+}
+
+.editor-modal-close:hover {
+    color: #333;
+}
+
+.editor-status-message {
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.editor-status-message.loading {
+    background: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+
+.editor-status-message.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.editor-status-message.error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+}
+
+/* AI Modal专用样式 */
+.ai-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 100001;
+    display: none;
+}
+
+.ai-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ai-modal-header {
+    padding: 20px 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.ai-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    line-height: 1;
+}
+
+.ai-modal-close:hover {
+    color: #333;
+}
+
+.ai-modal-body {
+    padding: 20px;
+}
+
+.ai-modal-footer {
+    padding: 0 20px 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.ai-step {
+    text-align: center;
+}
+
+.ai-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.ai-loading-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.ai-loading-subtext {
+    font-size: 14px;
+    color: #666;
+}
+
+.ai-success-notice {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.ai-content-preview {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.ai-keywords-info {
+    font-size: 14px;
+    color: #666;
+}
+
+.ai-error-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.ai-error-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #c62828;
+    margin-bottom: 8px;
+}
+
+.ai-error-message {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Markdown帮助样式 - 紧凑版 */
+.editor-markdown-container {
+    padding: 0;
+}
+
+.editor-markdown-two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.editor-markdown-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editor-markdown-section {
+    margin-bottom: 0;
+}
+
+.editor-markdown-section h4 {
+    margin: 0 0 6px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+}
+
+.editor-markdown-section pre {
+    background: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+    overflow-x: auto;
+    border: 1px solid #eee;
+}
+
+.editor-markdown-subsection {
+    margin-top: 8px;
+}
+
+.editor-markdown-subsection h5 {
+    margin: 0 0 4px 0;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 短代码帮助样式 */
+.editor-shortcodes-container {
+    padding: 10px;
+}
+
+.editor-shortcodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.editor-shortcodes-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.editor-shortcodes-section h4 {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.editor-shortcodes-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.editor-shortcode-btn {
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+    height: auto !important;
+    line-height: 1.5 !important;
+}
+
+.editor-shortcodes-note {
+    margin-top: 20px;
+    padding: 10px;
+    background: #e3f2fd;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #0d47a1;
+}
+
+/* 豆瓣书籍样式 */
+.editor-douban-container {
+    padding: 10px;
+}
+
+.editor-douban-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.editor-douban-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+}
+
+.editor-douban-tab.active {
+    color: #2271b1;
+    border-bottom-color: #2271b1;
+    font-weight: 600;
+}
+
+.editor-douban-info p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.editor-douban-book-grid {
+    max-height: 400px;
+    overflow-y: auto;
+}

@@ -1,0 +1,837 @@
+/*
+ * ===========================================
+ * 头部样式 - 网站头部和导航样式
+ * ===========================================
+ *
+ * 🎯 头部组件设计
+ *   - 网站Logo: 品牌标识和链接样式
+ *   - 导航菜单: 主导航和移动端菜单
+ *   - 诗词推荐: 动态诗词显示组件
+ *   - 广告位: 头部广告区域样式
+ *
+ * 📱 响应式特性
+ *   - 移动端菜单: 汉堡菜单和下拉导航
+ *   - 自适应布局: 不同屏幕尺寸的布局适配
+ *   - 触摸友好: 移动端触摸交互优化
+ *   - 性能优化: 菜单动画和过渡效果
+ *
+ * 🎨 视觉设计
+ *   - 品牌一致性: 与整体设计风格统一
+ *   - 层次结构: 清晰的信息层级
+ *   - 交互反馈: 悬停和激活状态样式
+ *   - 无障碍支持: 键盘导航和屏幕阅读器
+ *
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+/* ===== 头部 ===== */
+#header {
+  padding-top: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+#logo {
+  color: var(--color-text-secondary);
+  font-size: 2em;
+}
+
+#logo a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+#logo a:hover {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+#logo img {
+  max-height: 64px;
+}
+
+.description {
+  margin: 0.5em 0 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  font-size: 1em;
+}
+
+#search {
+  position: relative;
+  margin-top: 15px;
+}
+
+#search input {
+  padding-right: 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#search button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 32px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#search button:hover {
+  color: var(--color-link);
+}
+
+#search button svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* 暗主题下搜索框使用浅灰色背景 - 降低亮度 */
+[data-theme="dark"] #search input {
+  background-color: #2d2d2d;
+  border-color: #3a3a3a;
+  color: var(--color-text);
+}
+
+[data-theme="dark"] #search input::placeholder {
+  color: #888;
+}
+
+[data-theme="dark"] #search input:focus {
+  background-color: #333;
+  border-color: var(--color-link);
+}
+
+/*
+ * ===========================================
+ * 侧边栏样式 - 侧边栏和小工具样式
+ * ===========================================
+ *
+ * 📊 侧边栏组件
+ *   - 小工具区域: WordPress小工具显示区域
+ *   - 排行榜: 阅读排行、点赞排行、评论排行
+ *   - 分类标签: 文章分类和标签云显示
+ *   - 搜索功能: 站内搜索表单和结果
+ *
+ * 🎯 小工具设计
+ *   - 统一风格: 所有小工具的一致视觉风格
+ *   - 信息层级: 清晰的标题和内容层级
+ *   - 交互反馈: 悬停和点击状态样式
+ *   - 数据展示: 统计数据和列表的清晰展示
+ *
+ * 📱 响应式适配
+ *   - 移动端隐藏: 小屏幕下侧边栏隐藏
+ *   - 内容适配: 侧边栏内容的响应式调整
+ *   - 触摸优化: 移动端触摸交互优化
+ *   - 性能优化: 侧边栏内容的加载优化
+ *
+ * 🔧 功能特性
+ *   - 缓存优化: 小工具数据的缓存机制
+ *   - 动态更新: 实时数据更新和显示
+ *   - 自定义样式: 支持小工具的自定义样式
+ *   - 无障碍支持: 屏幕阅读器友好的结构
+ *
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+#secondary {
+  padding-top: 15px;
+  word-wrap: break-word;
+}
+
+/* ===== 侧边部件 ===== */
+.widget {
+  margin-bottom: 30px;
+}
+
+.widget-title {
+  font-size: 1rem;
+  /* 16px */
+  color: var(--color-text);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.widget-list {
+  list-style: none;
+  padding: 0;
+}
+
+.widget-list li {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+.widget-list li a {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.widget-list li a:hover {
+  opacity: 0.8;
+}
+
+.post-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 改回ellipsis以获得更好的浏览器兼容性 */
+  min-width: 0;
+  /* 允许flex子项缩小 */
+  max-width: 100%;
+  /* 确保不超过容器宽度 */
+}
+
+.post-count {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+.widget-list li ul {
+  margin-left: 15px;
+}
+
+.widget-no-data {
+  color: #6c757d;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ===== 归档 ===== */
+.month-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.post-list {
+  list-style-type: decimal;
+  padding-left: 60px;
+}
+
+/* ===== 相册 ===== */
+#flickr {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#flickr a {
+  position: relative;
+  float: left;
+  width: 75px;
+  height: 75px;
+  margin-bottom: 3px;
+  border: none;
+  overflow: hidden;
+}
+
+#flickr a:after {
+  position: absolute;
+  left: -95px;
+  top: 0;
+  width: 75px;
+  height: 75px;
+  background-image: linear-gradient(0,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0));
+  content: '';
+  cursor: pointer;
+  transform: skewx(-25deg);
+}
+
+#flickr a:hover:after {
+  left: 95px;
+  transition: 0.5s;
+}
+
+#flickr a.empty {
+  height: 0;
+  margin: 0;
+}
+
+#flickr a img {
+  bottom: 0;
+}
+
+/* 基础样式 - 确保所有效果的一致性 */
+.widget-recent-album {
+  position: relative;
+}
+
+.sidebar-album {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--color-bg-card, rgba(0, 0, 0, 0.02));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  /* min-height: 300px; 模块最小高度 - 修改此处调整模块整体高度 */
+}
+
+/* 【轮播尺寸设置位置1】视口容器高度 */
+.sidebar-album__viewport {
+  position: relative;
+  height: 250px;
+  /* 轮播视口高度 - 修改此处调整整体高度 */
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 【轮播尺寸设置位置2】图片高度 */
+.sidebar-album__image-wrapper img {
+  display: block;
+  width: 100% !important;
+  height: 250px !important;
+  /* 轮播图片高度 - 修改此处调整图片高度 */
+  object-fit: cover !important;
+  filter: var(--image-filter);
+  transition: transform 0.6s ease;
+}
+
+
+
+.sidebar-album__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 使用百分比高度 */
+  opacity: 0;
+  transition: all 1.2s ease;
+}
+
+/* 默认显示第一张图片 - 确保在JS加载前可见 */
+.sidebar-album__item:first-child {
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+.sidebar-album__item.sidebar-album__item--active {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* 加载状态优化 - 防止闪烁 */
+.sidebar-album {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-album.loading {
+  opacity: 0.8;
+}
+
+/* 淡入淡出效果 */
+.sidebar-album--fade .sidebar-album__item {
+  transform: scale(0.9);
+}
+
+.sidebar-album--fade .sidebar-album__item.sidebar-album__item--active {
+  transform: scale(1);
+}
+
+/* 移除重复的sidebar-album__item定义，避免覆盖绝对定位 */
+
+.sidebar-album__link {
+  display: block;
+  color: var(--color-text);
+}
+
+.sidebar-album__image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+
+.sidebar-album__title {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 16px 18px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ece5e5;
+  letter-spacing: 0.4px;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(180deg, rgba(18, 22, 33, 0) 0%, rgba(18, 22, 33, 0.4) 90%);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+.sidebar-album__link:focus-visible .sidebar-album__image-wrapper img,
+.sidebar-album__link:hover .sidebar-album__image-wrapper img {
+  transform: scale(1.05);
+}
+
+.sidebar-album__link:focus-visible .sidebar-album__title,
+.sidebar-album__link:hover .sidebar-album__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sidebar-album__controls {
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+/* 正常状态下按钮完全隐藏，但在移动端始终显示 */
+.sidebar-album:not(.sidebar-album--hover) .sidebar-album__controls {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+}
+
+@media (pointer: coarse) {
+  .sidebar-album .sidebar-album__controls {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(0) !important;
+  }
+}
+
+/* 悬停状态下按钮显示 */
+.sidebar-album--hover .sidebar-album__controls {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.sidebar-album--hover .sidebar-album__title,
+.sidebar-album.sidebar-album--hover .sidebar-album__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sidebar-album__link:focus-visible .sidebar-album__title,
+.sidebar-album__link:hover .sidebar-album__title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sidebar-album__nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sidebar-album__nav:focus-visible,
+.sidebar-album__nav:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.sidebar-album__nav[disabled] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.sidebar-album__indicators {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sidebar-album__indicator {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.sidebar-album__indicator:focus-visible,
+.sidebar-album__indicator:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.12);
+}
+
+.sidebar-album__indicator[aria-selected='true'] {
+  background: var(--color-link);
+  box-shadow: 0 0 0 4px rgba(0, 124, 186, 0.25);
+}
+
+.sidebar-album--single .sidebar-album__controls {
+  display: none !important;
+}
+
+/* 【轮播尺寸设置位置3】响应式图片高度 */
+@media (max-width: 1366px) {
+  .sidebar-album__image-wrapper img {
+    height: 300px;
+    /* 中等屏幕图片高度 - 可修改 */
+  }
+
+  .sidebar-album__title {
+    font-size: 0.9rem;
+    padding: 14px 16px 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar-album__image-wrapper img {
+    height: 300px;
+    /* 小屏幕图片高度 - 可修改 */
+  }
+}
+
+@media (pointer: coarse) {
+  .sidebar-album__nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+
+  .sidebar-album__indicator {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sidebar-album__viewport,
+  .sidebar-album__image-wrapper img,
+  .sidebar-album__nav,
+  .sidebar-album__indicator {
+    transition: none !important;
+  }
+}
+
+/* ===== 推特 ===== */
+#twitter {
+  list-style-type: none;
+  padding: 0;
+}
+
+#twitter li {
+  margin-bottom: 15px;
+}
+
+#twitter em {
+  margin-right: 10px;
+  font-style: normal;
+}
+
+/* ===== 订阅列表 ===== */
+#rss ul,
+#link ul {
+  margin: 0;
+  padding: 0;
+}
+
+#rss li {
+  position: relative;
+  list-style-type: none;
+  height: 30px;
+  border-bottom: 1px solid var(--color-border);
+  line-height: 30px;
+  transition: all 0.5s;
+}
+
+#rss li:hover {
+  border-bottom: 1px solid var(--color-border-medium);
+}
+
+#rss a {
+  display: inline-block;
+  width: calc(100% - 115px);
+  border-bottom: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#rss i {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  width: 115px;
+  color: var(--color-text-light);
+  transition: all 0.5s;
+}
+
+/* ===== 饭否 ===== */
+#fanfou .fanbox {
+  position: relative;
+  border-top: 1px solid var(--color-border);
+  transition: all 0.5s;
+  padding: 10px 0;
+  display: table;
+  width: 100%;
+}
+
+#fanfou span {
+  display: table-cell;
+  vertical-align: top;
+}
+
+#fanfou .photo {
+  display: table-cell;
+  vertical-align: top;
+  width: 125px;
+  text-align: right;
+}
+
+#fanfou em {
+  display: block;
+  color: var(--color-text-light);
+  font-style: normal;
+}
+
+#fanfou i {
+  font-style: normal;
+  margin-left: 10px;
+}
+
+
+
+/* ===== 豆瓣电影卡片样式 ===== */
+.movieCard,
+.githubCard,
+.githubCart {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  transition: 0.5s;
+  background-color: var(--color-bg-card);
+}
+
+.movieCard:hover,
+.githubCard:hover,
+.githubCart:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.movieCard img,
+.githubCard img {
+  float: left;
+  height: 120px;
+  /* 调小尺寸 */
+  margin-right: 10px;
+}
+
+.movieDetail,
+.githubDetail {
+  margin: 0;
+  max-height: 125px;
+  /* 相应调整 */
+  line-height: 22px;
+  /* 调整行高 */
+  overflow: hidden;
+}
+
+.movieDetail dd,
+.githubDetail dd {
+  margin-left: 0;
+}
+
+.movieDetail dd a,
+.githubDetail dd a {
+  margin-bottom: 8px;
+  color: #4169e1;
+  font-size: 1.4em;
+  /* 调小字体 */
+}
+
+.movieDetail .more {
+  text-align: right;
+}
+
+.githubAvatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.githubDetail {
+  margin: 0;
+  line-height: 21px;
+}
+
+.githubCart p {
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-border);
+  font-size: 1.6em;
+}
+
+#link li {
+  position: relative;
+  display: inline-block;
+  width: calc(25% - 10px);
+  margin: 5px;
+  letter-spacing: 0;
+}
+
+#link li:nth-child(4n + 1) {
+  margin-left: 0;
+}
+
+#link a {
+  display: block;
+  position: relative;
+  height: 20px;
+  padding: 5px 5px 5px 40px;
+  border: 1px solid var(--color-border);
+  white-space: nowrap;
+  transition: 0.5s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#link a:hover~.web-screens {
+  transition: all 0.5s;
+  z-index: 999;
+  height: auto;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+
+#link li .web-screens {
+  position: absolute;
+  left: 0;
+  top: 31px;
+  width: calc(100% - 1px);
+  height: 0;
+  opacity: 0;
+}
+
+#link a img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  padding: 7px;
+  background: var(--color-bg-secondary);
+  overflow: hidden;
+}
+
+#link .unlinks a {
+  text-decoration: line-through;
+}
+
+/* ===== 标签云 ===== */
+.tagcloud {
+  padding: 0;
+}
+
+.tagcloud .widget-list {
+  display: block;
+}
+
+.tagcloud .widget-list li {
+  display: inline-block;
+  margin: 0 6px 6px 0 !important;
+}
+
+.tagcloud .widget-list li a {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ===== 推荐文章模块 ===== */
+.widget-recommended-posts {
+  margin-bottom: 30px;
+}
+
+.recommended-posts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recommended-post-item {
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.recommended-post-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.recommended-post-link {
+  display: block;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.2s ease;
+}
+
+.recommended-post-link:hover {
+  color: var(--link-color);
+}
+
+.recommended-post-title {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.recommended-post-excerpt {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  line-height: 1.3;
+  opacity: 0.8;
+}
+
+.recommended-post-link:hover .recommended-post-title {
+  color: var(--link-color);
+}
+
+.recommended-post-link:hover .recommended-post-excerpt {
+  opacity: 1;
+}

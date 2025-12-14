@@ -1,0 +1,622 @@
+/*
+Theme Name: BarePaper
+Theme URI: https://github.com/wangdaodaodao/WordPress-theme-barepaper
+Author: wangdaodao
+Author URI: https://github.com/wangdaodaodao
+Description: BarePaper - 一个简洁、高性能的 WordPress 主题，专为个人博客和内容创作者设计。本主题由 wangdaodao 原创开发，采用极简设计理念，注重阅读体验和性能优化。
+Version: 3.1.0
+License:
+*/
+
+
+
+@charset "UTF-8";
+
+/* 主题变量已移至 variables.css 文件，避免重复定义 */
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 100%;
+    /* 优化：提升可访问性 */
+}
+
+body {
+    margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden],
+template {
+    display: none;
+}
+
+a {
+    background-color: transparent;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+dfn {
+    font-style: italic;
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0;
+}
+
+mark {
+    background: #ff0;
+    color: #000;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -.5em;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+img {
+    border: 0;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+figure {
+    margin: 1em 40px;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+}
+
+pre {
+    overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+
+button {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+}
+
+optgroup {
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+
+@media print {
+
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .btn>.caret,
+    .dropup>.btn>.caret {
+        border-top-color: #000 !important;
+    }
+
+    .label {
+        border: 1px solid #000;
+    }
+
+    .table {
+        border-collapse: collapse !important;
+    }
+
+    .table td,
+    .table th {
+        background-color: #fff !important;
+    }
+
+    .table-bordered th,
+    .table-bordered td {
+        border: 1px solid #ddd !important;
+    }
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot);
+    src: url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff2) format('woff2'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.woff) format('woff'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.ttf) format('truetype'), url(https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg');
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.8;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: #23527c;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+/* 图片类已移至 image.css 统一管理 */
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+
+[role="button"] {
+    cursor: pointer;
+}
+
+/* .container 类已移至 grid.css 统一管理
+    margin-bottom: 20px;
+    border-radius: 6px;
+    padding: 20px;
+} */
+
+.header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+}
+
+.blog-title {
+    font-size: 2.5rem;
+    /* 40px */
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.blog-description {
+    font-size: 1rem;
+    /* 16px */
+    color: #999;
+}
+
+.navigation-main {
+    margin-bottom: 20px;
+}
+
+.navigation-main ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navigation-main ul li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.navigation-main ul li a {
+    font-size: 1rem;
+    /* 16px */
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 10px 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navigation-main ul li a:hover {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+.navigation-main ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--link-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.navigation-main ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.navigation-main .current-menu-item a {
+    color: var(--color-link);
+    font-weight: bold;
+}
+
+/* 文章相关样式已移至 post.css 统一管理 */
+
+.comments {
+    margin-top: 40px;
+}
+
+.comment-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.comment {
+    margin-bottom: 20px;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-meta {
+    color: #999;
+}
+
+.comment-content {
+    margin-top: 10px;
+}
+
+.comment-reply-link {
+    font-size: 0.75rem;
+    /* 12px */
+}
+
+.comment-form {
+    margin-top: 40px;
+}
+
+.footer {
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    color: #999;
+    text-align: center;
+}
+
+/* Sidebar Styles - 已移至 sidebar.css 统一管理 */
+
+/* 部件样式已移至 sidebar.css 统一管理 */
+
+
+
+/* 优化：友情链接同样使用 Flexbox */
+.friend-links-container {
+    padding-left: 5px;
+}
+
+.friend-links-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    /* 行间距6px, 列间距12px */
+}
+
+.friend-link-item a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+/* Custom Search Form Styles */
+#search input {
+    padding-right: 35px;
+}
+
+#search button {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    width: 32px;
+    height: 100%;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+#search button:hover {
+    color: #333;
+}
+
+#search button svg {
+    stroke: currentColor;
+}
+
+/* 广告样式已移至 utilities.css 统一管理 */
+
+/* 广告样式已移至 utilities.css 统一管理 */
+
+/* 底部统计信息样式 - 简洁文本风格 */
+#footer {
+    text-align: center;
+    padding: 20px 0;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+#footer a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+
+#footer a:hover {
+    text-decoration: underline;
+}
+
+/* 深色主题适配 */
+[data-theme="dark"] #footer {
+    color: #ccc;
+}
+
+/* 页脚 SVG 图标样式 */
+#footer svg {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    vertical-align: middle;
+    opacity: 0.8;
+}

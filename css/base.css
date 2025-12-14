@@ -1,0 +1,287 @@
+/* 基础样式 - 主题核心样式定义 */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none
+}
+
+a:hover,
+a:active,
+#rss li:hover i {
+  color: var(--color-link-hover);
+}
+
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* 基础代码样式已移至 markdown.css 统一管理 */
+
+/*
+blockquote {
+  margin: 1em 0;
+  padding: 0.5em 0 0.5em 1em;
+  border-left: 4px solid var(--color-border-blockquote);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-blockquote);
+}
+*/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 5px 10px;
+  border: 1px solid var(--color-border);
+}
+
+table th {
+  background: var(--color-bg-table-header);
+  white-space: nowrap;
+}
+
+table tbody tr:nth-child(2n) {
+  background-color: var(--color-bg-table-row-even);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: var(--color-bg-input);
+  color: var(--color-text);
+}
+
+button {
+  padding: 5px;
+  border: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-button);
+  color: var(--color-text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+img {
+  filter: var(--image-filter);
+}
+
+/* .clearfix 类已移至 grid.css 统一管理 */
+
+.post-meta a,
+.widget a,
+.comment-content a {
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none !important;
+}
+
+.widget-list a {
+  border-bottom: none !important;
+}
+
+/* 只对段落内的直接链接应用下划线样式 */
+.post-content>p:not(.more)>a:not(.excerpt-image-link) {
+  position: relative;
+  display: inline-block;
+  color: var(--color-link-post);
+}
+
+.post-content>p:not(.more)>a:not(.excerpt-image-link):after {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 0;
+  border-bottom: 0.1rem solid var(--color-link-post-underline);
+  content: '';
+  transition: width 350ms, left 350ms;
+}
+
+.post-content>p:not(.more)>a:not(.excerpt-image-link):hover::after {
+  left: 0;
+  width: 100%;
+  transition: width 350ms;
+}
+
+/* 排除代码块和列表容器内的链接样式，避免横线影响 */
+.code-block-container a,
+.code-block-container a::after,
+.code-block-container a:hover::after,
+.shortcode-code-container a,
+.shortcode-code-container a::after,
+.shortcode-code-container a:hover::after,
+pre a,
+pre a::after,
+pre a:hover::after,
+code a,
+code a::after,
+code a:hover::after,
+.markdown-list a,
+.markdown-list a::after,
+.markdown-list a:hover::after,
+.markdown-list-item a,
+.markdown-list-item a::after,
+.markdown-list-item a:hover::after,
+.post-content ul a,
+.post-content ul a::after,
+.post-content ul a:hover::after,
+.post-content ol a,
+.post-content ol a::after,
+.post-content ol a:hover::after,
+.post-content li a,
+.post-content li a::after,
+.post-content li a:hover::after,
+.post-content ul,
+.post-content ol,
+.post-content li,
+.markdown-list,
+.markdown-list-item {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+.markdown-list a,
+.markdown-list-item a,
+.post-content ul a,
+.post-content ol a,
+.post-content li a {
+  border-bottom: none !important;
+  content: none !important;
+  position: static !important;
+  display: inline !important;
+}
+
+.markdown-list a::after,
+.markdown-list-item a::after,
+.post-content ul a::after,
+.post-content ol a::after,
+.post-content li a::after,
+.markdown-list a:hover::after,
+.markdown-list-item a:hover::after,
+.post-content ul a:hover::after,
+.post-content ol a:hover::after,
+.post-content li a:hover::after {
+  border-bottom: none !important;
+  content: none !important;
+}
+
+.post-meta a:hover,
+.widget a:hover,
+.comment-content a:hover {
+  border-bottom-color: transparent;
+}
+
+.browsehappy {
+  padding: 8px 0;
+  background: var(--color-bg-browsehappy);
+  color: var(--color-text-browsehappy);
+  text-align: center;
+}
+
+.browsehappy a {
+  color: var(--color-text-browsehappy);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* 文章内容样式已移至 post.css 统一管理 */
+
+/* 文章图片样式已移至 image.css 统一管理 */
+
+.footnote-ref::before {
+  content: '[';
+}
+
+.footnote-ref::after {
+  content: ']';
+}
+
+.post-content hr,
+.comment-content hr {
+  width: 100px;
+  margin: 2em auto;
+  border: 2px 0 0 0 solid var(--color-border-light);
+}
+
+/* 图片对齐样式已移至 image.css 统一管理 */
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.sr-only,
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.expired-notice {
+  padding: 5px 10px 10px;
+  background-color: #fdf6ec;
+  color: #e6a23c;
+  border-radius: 2px;
+}
+
+.expired-notice em {
+  padding: 0 5px;
+  font-size: 1.5em;
+  font-style: normal;
+}

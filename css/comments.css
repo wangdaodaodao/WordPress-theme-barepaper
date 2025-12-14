@@ -1,0 +1,459 @@
+/*
+ * ===========================================
+ * 评论样式 - Waline 风格评论系统
+ * ===========================================
+ *
+ * 💬 评论系统设计（基于 Waline）
+ *   - 简洁表单: 扁平化输入框设计
+ *   - 虚线分隔: 评论之间用虚线分隔
+ *   - 左右布局: 头像在左，内容在右
+ *   - 无过度装饰: 去除多余阴影和卡片效果
+ *
+ * @author wangdaodao
+ * @version 4.1.0
+ * @date 2025-11-27
+ */
+
+/* ===== 评论区域容器 ===== */
+.comments-area {
+  margin-top: 2em;
+}
+
+.comments-title {
+  margin-bottom: 1em;
+  color: var(--color-text-secondary);
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+/* 评论标题和展开按钮组合 */
+.comments-title-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+  color: var(--color-text-secondary);
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.comments-count {
+  flex-shrink: 0;
+}
+
+/* 内联展开/收起按钮 */
+.comments-toggle-btn-inline {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-link);
+  font-size: 0.8em;
+  font-weight: 400;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.comments-toggle-btn-inline:hover {
+  opacity: 0.7;
+}
+
+/* 评论列表收起状态 - 隐藏所有评论 */
+.comment-list.comments-collapsed>li {
+  display: none;
+}
+
+/* 隐藏 WordPress 默认的 cookies 同意文本 */
+.comment-form .comment-form-cookies-consent:not(.form-submit-row .comment-form-cookies-consent) {
+  display: none !important;
+}
+
+.comment-notes-after {
+  display: none !important;
+}
+
+/* ===== 评论表单 ===== */
+#comment-form {
+  margin-bottom: 2em;
+  padding: 0.75em;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75em;
+  background: var(--color-bg);
+}
+
+.widget-title {
+  margin: 0 0 0.75em 0;
+  padding: 0 0.25em;
+  color: var(--color-text-secondary);
+  font-size: 1em;
+  font-weight: 700;
+}
+
+/* 表单元信息行（称呼、邮箱、记住我） */
+.comment-form-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0 0;
+  padding: 0.25em;
+  border-bottom: 2px dashed var(--color-border);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 580px) {
+  .comment-form-meta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75em;
+  }
+}
+
+.comment-form-meta-row label {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0 0.5em 0 0;
+  color: var(--color-text);
+  font-size: 0.75em;
+  font-weight: 400;
+}
+
+.comment-form-meta-row input[type="text"],
+.comment-form-meta-row input[type="email"] {
+  flex: 1;
+  min-width: 120px;
+  padding: 0.5em;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.625em;
+  line-height: 1.5;
+  outline: none;
+  transition: background 0.25s ease;
+}
+
+@media (max-width: 580px) {
+
+  .comment-form-meta-row input[type="text"],
+  .comment-form-meta-row input[type="email"] {
+    width: 100%;
+  }
+}
+
+.comment-form-meta-row input[type="text"]:focus,
+.comment-form-meta-row input[type="email"]:focus {
+  background: var(--color-bg-hover);
+}
+
+.required {
+  color: #e74c3c;
+}
+
+/* 记住我复选框 */
+.comment-form-cookies-consent {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+@media (max-width: 580px) {
+  .comment-form-cookies-consent {
+    margin-left: 0;
+  }
+}
+
+.comment-form-cookies-consent input[type="checkbox"] {
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.comment-form-cookies-consent label {
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: 0.8125em;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* 评论内容区域 */
+.comment-form-comment {
+  position: relative;
+  margin: 0;
+  padding: 0.75em 0.5em;
+}
+
+.comment-form-comment label {
+  display: inline-block;
+  margin: 0 1em 0 0;
+  padding: 0;
+  color: var(--color-text);
+  font-size: 0.875em;
+  font-weight: 700;
+}
+
+.comment-form-comment textarea {
+  width: calc(100% - 1em);
+  min-height: 8.75em;
+  margin: 0.75em 0.5em;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-size: 0.875em;
+  line-height: 1.75;
+  resize: vertical;
+  outline: none;
+  transition: background 0.25s ease;
+}
+
+.comment-form-comment textarea:focus {
+  background: var(--color-bg-hover);
+}
+
+/* 表单底部区域（记住我 + 提交按钮） */
+.form-submit,
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.15em 0.25em;
+  /* 减少 margin，降低占用空间 */
+  padding: 0;
+}
+
+/* 已登录用户只有提交按钮时，右对齐 */
+.form-submit {
+  justify-content: flex-end;
+}
+
+.form-submit-row .comment-form-cookies-consent {
+  margin-left: 0;
+}
+
+/* 提交按钮 - 使用主题默认样式 */
+.submit {
+  min-width: 100px;
+  padding: 0.5em 1em;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5em;
+  background: var(--color-bg-button);
+  color: var(--color-text);
+  font-size: 0.75em;
+  font-weight: 400;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit:hover {
+  border-color: var(--color-text);
+}
+
+.submit:disabled {
+  border-color: var(--color-border);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 评论列表 */
+.comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.comment-list>li {
+  margin-bottom: 4px;
+  padding-bottom: 1px;
+  /* 紧贴虚线 */
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.comment-list>li:last-child {
+  border-bottom: none;
+}
+
+/* Media Object Layout */
+.media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.media-left {
+  /* margin-right: 1em; */
+  flex-shrink: 0;
+}
+
+.media-left .avatar {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.media-body {
+  flex: 1;
+  min-width: 0;
+  /* Fix flex text overflow */
+}
+
+/* Author Name */
+.media-body .author_name {
+  margin: 0 0 0.25em 0;
+  /* 稍微减小名字下方的间距，主要靠内容的上间距 */
+  font-weight: 700;
+  font-size: 1em;
+  color: var(--color-text);
+}
+
+.author_name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.badge-author {
+  display: inline-block;
+  margin-left: 0.5em;
+  padding: 1px 4px;
+  border: 1px solid var(--color-link);
+  border-radius: 3px;
+  color: var(--color-link);
+  font-size: 0.75em;
+  font-weight: normal;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Comment Content */
+.media-body p {
+  margin: 0.8em 0 0.5em 0;
+  /* 增加内容上间距 */
+  font-size: 0.9375em;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.media-body .author_name+p {
+  margin-top: 1em;
+}
+
+.media-body p:last-child {
+  margin-bottom: 5px;
+}
+
+/* Metadata Row */
+.comment-metadata {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+  /* margin-top: 1px; */
+  padding-left: 34px;
+  /* Align with content */
+  font-size: 12px;
+  /* 调小字体 */
+  color: var(--color-text-muted);
+}
+
+
+.comment-children {
+  padding: 5px 0 0 40px;
+}
+
+@media (max-width: 580px) {
+  .comment-metadata {
+    padding-left: 0;
+    /* Mobile: no indent */
+    gap: 0.5em;
+  }
+}
+
+.comment-metadata span {
+  display: inline-flex;
+  align-items: center;
+}
+
+
+.ua i,
+.os i {
+  margin-right: 4px;
+}
+
+/* Reply Button */
+.comment-btn-reply {
+  margin-left: auto;
+  /* Push to right */
+}
+
+.comment-btn-reply a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.comment-btn-reply a:hover {
+  color: var(--color-link);
+}
+
+.comment-btn-reply i {
+  margin-right: 4px;
+}
+
+/* Nested Comments */
+.comment-list .children {
+  margin-left: 0;
+  margin-top: 1.5em;
+  list-style: none;
+  padding-left: 48px;
+}
+
+@media (max-width: 580px) {
+  .comment-list .children {
+    margin-left: 1em;
+  }
+}
+
+/* 评论分页 */
+.comment-navigation {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.comment-navigation .page-numbers {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  margin: 0 0.25em;
+  border-radius: 4px;
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.875em;
+}
+
+.comment-navigation .page-numbers.current,
+.comment-navigation .page-numbers:hover {
+  background: var(--color-link);
+  color: #fff;
+}
+
+/* 无评论提示 */
+.no-comments {
+  padding: 2em;
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+/* 隐藏不需要的元素 */
+.comment-a {
+  display: none;
+}
+
+/* 评论回复表单位置调整 */
+.comment-list #respond {
+  margin-top: 1em;
+  margin-left: 0;
+  /* 卡片式布局下不需要缩进表单 */
+}

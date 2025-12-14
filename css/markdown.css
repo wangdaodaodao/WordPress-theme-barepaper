@@ -1,0 +1,1094 @@
+/*
+ * ===========================================
+ * Markdown内容样式
+ * ===========================================
+ *
+ * 🎯 功能说明
+ *   - 专门处理Markdown语法生成的HTML样式
+ *   - 支持完整的CommonMark语法样式
+ *   - 适配Barepaper主题的设计系统
+ *
+ * 🔧 支持的Markdown元素
+ *   - 标题 (H1-H6): 层级样式和锚点
+ *   - 段落: 行高和间距优化
+ *   - 列表: 有序和无序列表样式
+ *   - 引用块: 带装饰的引用样式
+ *   - 代码: 内联代码和代码块
+ *   - 文本格式: 粗体、斜体、删除线、高亮
+ *   - 分隔线: 渐变装饰线
+
+ * @author wangdaodao
+ * @version 1.0.0
+ * @date 2025-10-23
+ */
+
+/* ===== Markdown内容相关 ===== */
+
+/* Markdown内容容器 - 控制整体Markdown内容的行高和颜色 */
+.markdown-content {
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+/* Markdown硬换行样式 - 控制Markdown中的硬换行显示 */
+.markdown-br {
+    margin-bottom: 0.75em;
+    display: block;
+}
+
+/* ===== Markdown代码样式 ===== */
+
+/* 基础代码字体统一管理 - 控制所有代码元素的字体 */
+pre,
+code,
+kbd,
+samp {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* 基础代码元素样式 - 控制代码块和内联代码的基础样式 */
+pre,
+code {
+    background: var(--color-bg-code);
+    font-family: var(--font-family-code);
+    font-size: 0.92857em;
+}
+
+code {
+    padding: 2px 4px;
+    color: var(--color-text-code);
+}
+
+pre {
+    padding: 8px;
+    overflow: auto;
+}
+
+pre code {
+    padding: 0;
+    color: var(--color-text);
+}
+
+/* 内联代码样式 - 覆盖基础样式，控制行内代码显示 */
+code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+}
+
+/* Markdown代码块内容样式 - 配合容器样式使用 */
+.line-numbers {
+    background: transparent !important;
+    border: none !important;
+    padding: 16px !important;
+    margin: 0 !important;
+    white-space: pre-wrap !important;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: #24292e !important;
+    overflow-x: visible !important;
+    word-wrap: break-word !important;
+}
+
+/* 代码块内容暗主题样式 - 采用行内代码块样式 */
+[data-theme="dark"] .line-numbers {
+    background-color: #2b2b2b !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #54585b !important;
+}
+
+.line-numbers code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: inherit !important;
+}
+
+
+/* ========================================
+   1. 单行内联代码（无复制按钮）
+   ======================================== */
+
+/* 内联代码样式 */
+code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.9em;
+    color: var(--color-text-code);
+}
+
+[data-theme="dark"] code {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+}
+
+/* ========================================
+   2. 多行代码块 - Markdown（有复制按钮，随内容宽度）
+   ======================================== */
+
+/* Markdown 代码块容器 - 随内容宽度变化 */
+.code-block-container,
+.markdown-content .code-block-container,
+.entry-content .code-block-container,
+.post-content .code-block-container {
+    position: relative !important;
+    display: inline-block !important;
+    /* 改为 inline-block */
+    width: fit-content !important;
+    /* 随内容宽度 */
+    max-width: 100% !important;
+    text-align: left !important;
+    margin: 0 !important;
+    border-radius: 3px !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    background: var(--color-bg-code) !important;
+    border: 1px solid var(--color-border) !important;
+    font-family: inherit !important;
+    box-sizing: border-box !important;
+}
+
+/* 代码块间距 */
+*+.code-block-container {
+    margin-top: 0.5rem !important;
+}
+
+.code-block-container+* {
+    margin-top: 0.5rem !important;
+}
+
+.code-block-container+.markdown-paragraph {
+    margin-top: 0.5rem !important;
+}
+
+/* 代码块暗主题 */
+[data-theme="dark"] .code-block-container {
+    background: #1e1e1e !important;
+    border-color: #3a3a3a !important;
+}
+
+/* 代码块内的 pre 标签 */
+.code-block-container pre {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.4rem 2.5rem 0.4rem 0.6rem !important;
+    /* 右侧留出按钮空间 */
+    margin: 0 !important;
+    overflow-x: visible !important;
+    overflow-wrap: break-word !important;
+    border-radius: 0 !important;
+}
+
+/* 代码块内的 code 标签 */
+.code-block-container pre code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-size: 0.9em !important;
+    line-height: 1.5 !important;
+    color: var(--color-text) !important;
+    display: block !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+}
+
+[data-theme="dark"] .code-block-container pre code {
+    color: #a8a8a8 !important;
+}
+
+/* 复制按钮 - 透明背景，不遮挡代码 */
+.code-block-container .copy-code-btn {
+    position: absolute;
+    top: -4px;
+    right: -5px;
+    background: transparent;
+    /* 改为透明 */
+    color: #666;
+    border: none;
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0;
+    z-index: 10;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    width: 28px;
+    height: 28px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.code-block-container .copy-code-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+}
+
+[data-theme="dark"] .code-block-container .copy-code-btn {
+    color: #999;
+}
+
+[data-theme="dark"] .code-block-container .copy-code-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* 复制按钮功能状态 */
+.code-block-container .copy-code-btn.copied {
+    background: rgba(82, 196, 26, 0.8) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    width: auto !important;
+}
+
+.code-block-container .copy-code-btn.copy-failed {
+    background: rgba(255, 77, 79, 0.8) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    width: auto !important;
+}
+
+/* 段落样式 - 默认无间距，只在有明确换行时才有间距 */
+.markdown-paragraph {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    line-height: 1.7 !important;
+    display: block !important;
+}
+
+/* 确保段落内的<br>标签正确显示换行（<br>标签默认就会换行） */
+.markdown-paragraph br {
+    line-height: inherit;
+}
+
+/* 只有连续的段落之间才有间距 - 减小间距 */
+.markdown-paragraph+.markdown-paragraph {
+    margin-top: 0.5rem !important;
+}
+
+/* 标题样式 - 提高优先级 - 默认无间距 */
+.markdown-content .markdown-heading,
+.entry-content .markdown-heading,
+.post-content .markdown-heading {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    color: var(--color-text) !important;
+    scroll-margin-top: 2rem !important;
+}
+
+/* 标题后紧跟内容时才有下边距 - 进一步减小间距 */
+.markdown-heading+* {
+    margin-top: 0.25rem !important;
+}
+
+/* 标题后紧跟段落时，确保有间距显示（编辑器有换行时） */
+.markdown-heading+.markdown-paragraph {
+    margin-top: 0.25rem !important;
+}
+
+/* 标题前有内容时才有上边距 */
+*+.markdown-heading {
+    margin-top: 1.5rem !important;
+}
+
+/* 标题前有双换行（空一行）时，显示间距 */
+.markdown-heading.has-space-before,
+.markdown-blockquote.has-space-before,
+.custom-container.has-space-before {
+    margin-top: 1.5rem !important;
+}
+
+/* 标题前只有单换行时，显示较小间距 */
+.markdown-heading.has-minimal-space-before,
+.markdown-blockquote.has-minimal-space-before,
+.custom-container.has-minimal-space-before {
+    margin-top: 0.5rem !important;
+}
+
+/* 首页预览中带标记类的段落也应该有间距 */
+p.has-space-before,
+.post-content p.has-space-before {
+    margin-top: 1.5rem !important;
+}
+
+p.has-minimal-space-before,
+.post-content p.has-minimal-space-before {
+    margin-top: 0.5rem !important;
+}
+
+/* 首页文章预览中的段落间距 - 类似标题的间距 */
+.index .post-content p,
+.archive .post-content p,
+.search .post-content p {
+    margin-top: 1.5rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* 第一个段落不需要上边距 */
+.index .post-content p:first-child,
+.archive .post-content p:first-child,
+.search .post-content p:first-child {
+    margin-top: 0 !important;
+}
+
+/* 首页预览中 markdown 标题的空行效果 */
+.index .post-content .markdown-heading,
+.archive .post-content .markdown-heading,
+.search .post-content .markdown-heading {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 首页预览中标题前有内容时才有上边距 */
+.index .post-content *+.markdown-heading,
+.archive .post-content *+.markdown-heading,
+.search .post-content *+.markdown-heading {
+    margin-top: 1.5rem !important;
+}
+
+/* 首页预览中标题前有双换行（空一行）时，显示间距 */
+.index .post-content .markdown-heading.has-space-before,
+.archive .post-content .markdown-heading.has-space-before,
+.search .post-content .markdown-heading.has-space-before {
+    margin-top: 1.5rem !important;
+}
+
+/* 首页预览中标题前只有单换行时，显示较小间距 */
+.index .post-content .markdown-heading.has-minimal-space-before,
+.archive .post-content .markdown-heading.has-minimal-space-before,
+.search .post-content .markdown-heading.has-minimal-space-before {
+    margin-top: 0.5rem !important;
+}
+
+/* 引用块样式 - 在excerpt中保留引用块的外观 */
+.post-content p.excerpt-blockquote,
+p.excerpt-blockquote {
+    border-left: 4px solid #007bff !important;
+    padding: 8px 24px 8px 16px !important;
+    margin: 0 !important;
+    font-style: italic !important;
+    color: #666 !important;
+    background: #f8f9fa !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+}
+
+/* 深色主题下的引用块样式 */
+[data-theme="dark"] .post-content p.excerpt-blockquote,
+[data-theme="dark"] p.excerpt-blockquote {
+    border-left-color: #4d8014 !important;
+    background: #2b2b2b !important;
+    color: #b0b0b0 !important;
+}
+
+/* 确保有间距的段落显示正确的间距 */
+.post-content p.has-space-before,
+p.has-space-before {
+    margin-top: 1.5rem !important;
+}
+
+.post-content p.has-minimal-space-before,
+p.has-minimal-space-before {
+    margin-top: 0.5rem !important;
+}
+
+.markdown-h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 0.5rem;
+}
+
+.markdown-h2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.3rem;
+}
+
+.markdown-h3 {
+    font-size: 1.5rem;
+}
+
+.markdown-h4 {
+    font-size: 1.25rem;
+}
+
+.markdown-h5 {
+    font-size: 1.1rem;
+}
+
+.markdown-h6 {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+}
+
+/* 列表样式 - 覆盖全局重置 - 默认无间距 */
+ul.markdown-list {
+    list-style-type: disc !important;
+    list-style: disc outside !important;
+    margin: 0 !important;
+    padding-left: 2rem !important;
+    list-style-position: outside !important;
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+ol.markdown-list {
+    list-style-type: decimal !important;
+    list-style: decimal outside !important;
+    margin: 0 !important;
+    padding-left: 2rem !important;
+    list-style-position: outside !important;
+    border-bottom: none !important;
+    border-top: none !important;
+}
+
+/* 列表前后有内容时才有间距 - 减小间距 */
+*+.markdown-list {
+    margin-top: 0.5rem !important;
+}
+
+.markdown-list+* {
+    margin-top: 0.5rem !important;
+}
+
+/* 列表后紧跟段落时，确保有间距显示（编辑器有换行时） */
+.markdown-list+.markdown-paragraph {
+    margin-top: 0.5rem !important;
+}
+
+/* 关键修复：直接为列表项设置样式，确保标记显示 - 进一步减小列表项间距 */
+.markdown-list>.markdown-list-item {
+    display: list-item !important;
+    list-style-type: disc !important;
+    list-style-position: outside !important;
+    margin-bottom: 0.1rem !important;
+    line-height: 1.6 !important;
+}
+
+/* 有序列表项的标记类型 */
+.markdown-list[class*="ol"]>.markdown-list-item {
+    list-style-type: decimal !important;
+}
+
+.markdown-list ul {
+    list-style-type: disc !important;
+    margin: 0.1rem 0;
+    padding-left: 1.5rem;
+}
+
+.markdown-list ol {
+    list-style-type: decimal !important;
+    margin: 0.1rem 0;
+    padding-left: 1.5rem;
+}
+
+.markdown-list-item {
+    margin-bottom: 0.1rem;
+    line-height: 1.6;
+    display: list-item !important;
+    list-style-type: inherit !important;
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    text-decoration: none !important;
+}
+
+/* 确保列表项内的所有元素都没有横线 */
+.markdown-list-item *,
+.markdown-list-item a,
+.markdown-list-item a::after,
+.markdown-list-item a:hover::after {
+    border-bottom: none !important;
+    text-decoration: none !important;
+}
+
+.markdown-list-item:last-child {
+    margin-bottom: 0;
+}
+
+/* 确保嵌套列表正确显示 */
+.markdown-list ul ul {
+    list-style-type: circle !important;
+}
+
+.markdown-list ul ul ul {
+    list-style-type: square !important;
+}
+
+.markdown-list ol ol {
+    list-style-type: lower-alpha !important;
+}
+
+.markdown-list ol ol ol {
+    list-style-type: lower-roman !important;
+}
+
+/* 有序列表特殊样式 */
+.markdown-list ol {
+    counter-reset: markdown-counter;
+}
+
+.markdown-list ol>li {
+    counter-increment: markdown-counter;
+}
+
+.markdown-list ol>li::marker {
+    content: counter(markdown-counter) ". ";
+    font-weight: 600;
+    color: var(--color-link);
+}
+
+/* Markdown引用块样式 - 与shortcode保持一致 - 默认无间距 */
+.markdown-blockquote {
+    border-left: 4px solid #007bff;
+    padding: 8px 24px 8px 5px;
+    margin: 0;
+    font-style: italic;
+    color: #666;
+    background: #f8f9fa;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* 引用块前后有内容时才有间距 - 减小间距 */
+*+.markdown-blockquote {
+    margin-top: 0.5rem !important;
+}
+
+.markdown-blockquote+* {
+    margin-top: 0.5rem !important;
+}
+
+/* 引用块后紧跟段落时，确保有间距显示（编辑器有换行时） */
+.markdown-blockquote+.markdown-paragraph {
+    margin-top: 0.5rem !important;
+}
+
+.markdown-blockquote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    color: #999;
+    text-align: right;
+}
+
+/* 暗主题样式 */
+[data-theme="dark"] .markdown-blockquote {
+    border-left-color: #4d8014;
+    background: #2b2b2b;
+    color: #b0b0b0;
+}
+
+[data-theme="dark"] .markdown-blockquote cite {
+    color: #888;
+}
+
+
+/* 引用模块 - 随内容改变宽度 - 默认无间距 */
+.paper-quote {
+    border-left: 4px solid #007bff;
+    padding: 8px 24px 8px 5px;
+    margin: 0;
+    font-style: italic;
+    color: #666;
+    background: #f8f9fa;
+    width: fit-content;
+    max-width: 100%;
+}
+
+/* 引用块前后有内容时才有间距 - 减小间距 */
+*+.paper-quote {
+    margin-top: 0.5rem !important;
+}
+
+.paper-quote+* {
+    margin-top: 0.5rem !important;
+}
+
+/* 引用块后紧跟段落时，确保有间距显示（编辑器有换行时） */
+.paper-quote+.markdown-paragraph {
+    margin-top: 0.5rem !important;
+}
+
+.paper-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    color: #999;
+    text-align: right;
+}
+
+/* 暗主题样式 */
+[data-theme="dark"] .paper-quote {
+    border-left-color: #4d8014;
+    background: #2b2b2b;
+    color: #b0b0b0;
+}
+
+[data-theme="dark"] .paper-quote cite {
+    color: #888;
+}
+
+/* 分隔线样式 */
+.markdown-hr {
+    margin: 2rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    position: relative;
+}
+
+.markdown-hr::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-link);
+}
+
+/* 文本格式化样式 */
+.markdown-bold {
+    font-weight: 700;
+}
+
+.markdown-italic {
+    font-style: italic;
+}
+
+.markdown-strikethrough {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.markdown-highlight {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+/* 深色主题适配 - 进一步降低亮度 */
+[data-theme="dark"] .markdown-highlight {
+    background-color: #2d2820;
+    color: #9a8f7a;
+}
+
+/* Markdown超链接样式 */
+.markdown-link {
+    color: var(--color-link);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.markdown-link:hover {
+    color: var(--color-link-hover, var(--color-link));
+    border-bottom-color: var(--color-link);
+}
+
+.markdown-link:focus {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+}
+
+/* 深色主题超链接样式 */
+[data-theme="dark"] .markdown-link {
+    color: #4dabf7;
+}
+
+[data-theme="dark"] .markdown-link:hover {
+    color: #74c0fc;
+    border-bottom-color: #4dabf7;
+}
+
+/* 内联代码样式 - 提高优先级 */
+.markdown-content .markdown-inline-code,
+.entry-content .markdown-inline-code,
+.post-content .markdown-inline-code {
+    position: relative !important;
+    background-color: var(--color-bg-code) !important;
+    color: var(--color-text) !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 3px !important;
+    font-family: 'SFMono-Regular', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace !important;
+    font-size: 0.9em !important;
+    border: 1px solid var(--color-border) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.markdown-content .markdown-inline-code:hover,
+.entry-content .markdown-inline-code:hover,
+.post-content .markdown-inline-code:hover {
+    background-color: var(--color-bg-code-hover, rgba(0, 0, 0, 0.08)) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 内联代码复制提示 */
+.markdown-content .markdown-inline-code::after,
+.entry-content .markdown-inline-code::after,
+.post-content .markdown-inline-code::after {
+    content: "点击复制";
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.markdown-content .markdown-inline-code:hover::after,
+.entry-content .markdown-inline-code:hover::after,
+.post-content .markdown-inline-code:hover::after {
+    opacity: 1;
+}
+
+/* 内联代码复制成功提示 */
+.markdown-content .markdown-inline-code.copied::after,
+.entry-content .markdown-inline-code.copied::after,
+.post-content .markdown-inline-code.copied::after {
+    content: "✓ 已复制";
+    background: #52c41a;
+    opacity: 1;
+}
+
+/* 内联代码暗主题样式 - 进一步降低文字亮度 */
+[data-theme="dark"] .markdown-content .markdown-inline-code,
+[data-theme="dark"] .entry-content .markdown-inline-code,
+[data-theme="dark"] .post-content .markdown-inline-code {
+    background-color: #1e1e1e !important;
+    color: #a8a8a8 !important;
+    border-color: #3a3a3a !important;
+}
+
+[data-theme="dark"] .markdown-content .markdown-inline-code:hover,
+[data-theme="dark"] .entry-content .markdown-inline-code:hover,
+[data-theme="dark"] .post-content .markdown-inline-code:hover {
+    background-color: #2d2d2d !important;
+    border-color: #4a4a4a !important;
+}
+
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+
+    /* 响应式下标题间距调整 */
+    *+.markdown-heading {
+        margin-top: 1.25rem !important;
+    }
+
+    /* 响应式下标题下方间距也减小 */
+    .markdown-heading+* {
+        margin-top: 0.2rem !important;
+    }
+
+    .markdown-heading+.markdown-paragraph {
+        margin-top: 0.2rem !important;
+    }
+
+    /* 响应式下段落间距也减小 */
+    .markdown-paragraph+.markdown-paragraph {
+        margin-top: 0.4rem !important;
+    }
+
+    .markdown-h1 {
+        font-size: 1.75rem;
+    }
+
+    .markdown-h2 {
+        font-size: 1.5rem;
+    }
+
+    .markdown-h3 {
+        font-size: 1.25rem;
+    }
+
+    .markdown-list {
+        padding-left: 1.5rem;
+    }
+
+    .markdown-blockquote {
+        padding: 0.75rem 1rem;
+    }
+
+    /* 响应式下代码块间距由通用规则控制，这里只调整padding */
+
+    .code-block-container pre {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .code-block-container pre code {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .copy-code-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .markdown-h1 {
+        font-size: 1.875rem;
+    }
+
+    .markdown-h2 {
+        font-size: 1.625rem;
+    }
+
+    .markdown-h3 {
+        font-size: 1.375rem;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .markdown-content {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    .markdown-heading {
+        break-after: avoid;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .markdown-blockquote {
+        border-left-width: 2px;
+        padding-left: 1rem;
+    }
+
+    .code-block-container {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .copy-code-btn {
+        display: none;
+    }
+}
+
+/* 无障碍支持 */
+@media (prefers-reduced-motion: reduce) {
+    .copy-code-btn {
+        transition: none;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    .markdown-highlight {
+        background-color: yellow;
+        color: black;
+        border: 1px solid black;
+    }
+
+    .markdown-inline-code {
+        border: 2px solid currentColor;
+    }
+
+    .markdown-blockquote {
+        border-left-width: 6px;
+    }
+
+    .paper-quote {
+        border-left-width: 6px;
+    }
+}
+
+/* ===== Markdown表格样式 ===== */
+
+.markdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-table-header {
+    background-color: var(--color-bg-secondary, #f8f9fa);
+    color: var(--color-text);
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+}
+
+.markdown-table-header:last-child {
+    border-right: none;
+}
+
+.markdown-table-cell {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    color: var(--color-text);
+    vertical-align: top;
+}
+
+.markdown-table-cell:last-child {
+    border-right: none;
+}
+
+.markdown-table tbody tr:hover {
+    background-color: var(--color-bg-hover, rgba(0, 0, 0, 0.02));
+}
+
+.markdown-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 深色主题表格样式 */
+[data-theme="dark"] .markdown-table {
+    background-color: var(--color-bg);
+    border-color: var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .markdown-table-header {
+    background-color: var(--color-bg-secondary, #2b2b2b);
+    color: var(--color-text);
+    border-bottom-color: var(--color-border);
+    border-right-color: var(--color-border);
+}
+
+[data-theme="dark"] .markdown-table-cell {
+    border-bottom-color: var(--color-border);
+    border-right-color: var(--color-border);
+    color: var(--color-text);
+}
+
+[data-theme="dark"] .markdown-table tbody tr:hover {
+    background-color: var(--color-bg-hover, rgba(255, 255, 255, 0.05));
+}
+
+/* ===== Markdown任务列表样式 ===== */
+
+.markdown-task-list {
+    margin: 0.5rem 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.markdown-task-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.1rem;
+    padding: 0.25rem 0;
+    line-height: 1.6;
+}
+
+.markdown-task-item:last-child {
+    margin-bottom: 0;
+}
+
+.markdown-task-checkbox {
+    margin-right: 0.5rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-link, #007cba);
+}
+
+.markdown-task-item.checked .markdown-task-text {
+    text-decoration: line-through;
+    opacity: 0.7;
+    color: var(--color-text-secondary, #6c757d);
+}
+
+.markdown-task-item.unchecked .markdown-task-text {
+    color: var(--color-text);
+}
+
+/* 任务列表深色主题样式 */
+[data-theme="dark"] .markdown-task-item.checked .markdown-task-text {
+    color: var(--color-text-secondary, #8e8e8e);
+}
+
+/* 任务列表响应式样式 */
+@media (max-width: 768px) {
+    .markdown-table {
+        font-size: 0.8rem;
+        margin: 1rem 0;
+    }
+
+    .markdown-table-header,
+    .markdown-table-cell {
+        padding: 8px 12px;
+    }
+
+    .markdown-task-item {
+        font-size: 0.9rem;
+    }
+
+    .markdown-task-checkbox {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* 任务列表打印样式 */
+@media print {
+    .markdown-task-list {
+        list-style: none;
+    }
+
+    .markdown-task-checkbox {
+        display: none;
+    }
+
+    .markdown-task-item.checked .markdown-task-text::before {
+        content: "☑ ";
+        font-weight: bold;
+    }
+
+    .markdown-task-item.unchecked .markdown-task-text::before {
+        content: "☐ ";
+    }
+}

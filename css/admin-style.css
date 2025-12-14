@@ -1,0 +1,263 @@
+/* Admin Page Wrapper */
+.appearance_page_paper-wp-theme-settings .wrap {
+    background: #f5f5f5;
+    padding: 16px;
+    margin: 10px 20px 0 2px;
+    max-width: none;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+/* Hide default WP title if desired, or style it */
+.appearance_page_paper-wp-theme-settings .wrap>h1 {
+    display: none;
+}
+
+.paper-admin-header h1 {
+    font-size: 18px !important;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* Tabs */
+.appearance_page_paper-wp-theme-settings .nav-tab-wrapper {
+    border-bottom: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    /* Connect to form */
+}
+
+.appearance_page_paper-wp-theme-settings .nav-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    margin-right: 0;
+    padding: 8px 12px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.appearance_page_paper-wp-theme-settings .nav-tab:hover {
+    color: #1890ff;
+}
+
+.appearance_page_paper-wp-theme-settings .nav-tab-active,
+.appearance_page_paper-wp-theme-settings .nav-tab-active:hover {
+    background: #fff;
+    border-color: #fff;
+    /* Match form background */
+    color: #1890ff;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    z-index: 1;
+    /* Sit above form border */
+}
+
+/* Content Area (Form) */
+.appearance_page_paper-wp-theme-settings form {
+    background: #fff;
+    padding: 24px 20px;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    /* Connect with active tab */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+/* Form Tables */
+.appearance_page_paper-wp-theme-settings .form-table {
+    margin-top: 0;
+}
+
+.appearance_page_paper-wp-theme-settings .form-table th {
+    width: 200px;
+    padding: 16px 10px 16px 0;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    vertical-align: top;
+}
+
+.appearance_page_paper-wp-theme-settings .form-table td {
+    padding: 16px 10px;
+    vertical-align: top;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+/* Inputs */
+.appearance_page_paper-wp-theme-settings input[type=text],
+.appearance_page_paper-wp-theme-settings input[type=password],
+.appearance_page_paper-wp-theme-settings input[type=email],
+.appearance_page_paper-wp-theme-settings input[type=url],
+.appearance_page_paper-wp-theme-settings input[type=number],
+.appearance_page_paper-wp-theme-settings textarea,
+.appearance_page_paper-wp-theme-settings select {
+    box-sizing: border-box;
+    margin: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    height: 32px;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    transition: all .3s;
+    box-shadow: none;
+}
+
+.appearance_page_paper-wp-theme-settings textarea {
+    height: auto;
+    max-width: 600px;
+    min-height: 100px;
+}
+
+.appearance_page_paper-wp-theme-settings input:focus,
+.appearance_page_paper-wp-theme-settings textarea:focus,
+.appearance_page_paper-wp-theme-settings select:focus {
+    outline: 0;
+    border-color: #40a9ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* Buttons */
+.appearance_page_paper-wp-theme-settings .button.button-primary {
+    background: #1890ff;
+    border-color: #1890ff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    height: 32px;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    line-height: 30px;
+}
+
+.appearance_page_paper-wp-theme-settings .button.button-primary:hover,
+.appearance_page_paper-wp-theme-settings .button.button-primary:focus {
+    background: #40a9ff;
+    border-color: #40a9ff;
+}
+
+.appearance_page_paper-wp-theme-settings .submit {
+    padding: 24px 0 0;
+    margin: 0;
+}
+
+/* Section Titles (h2/h3 inside form) */
+.appearance_page_paper-wp-theme-settings h2,
+.appearance_page_paper-wp-theme-settings h3 {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    padding: 0;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.appearance_page_paper-wp-theme-settings h2:before,
+.appearance_page_paper-wp-theme-settings h3:before {
+    display: block;
+    content: " ";
+    width: 4px;
+    height: 16px;
+    margin-right: 8px;
+    background-color: #1890ff;
+    border-radius: 2px;
+}
+
+/* Descriptions */
+.appearance_page_paper-wp-theme-settings .description,
+.appearance_page_paper-wp-theme-settings p.description {
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* Switch Styles (Ant Design Style) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    transition: .3s;
+    border-radius: 22px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
+}
+
+input:checked+.slider {
+    background-color: #1890ff;
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+/* Custom Fields Adjustments */
+.friend-link-item {
+    background: #fafafa;
+    border: 1px solid #e8e8e8 !important;
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+.friend-link-item input {
+    margin-right: 8px !important;
+}
+
+/* Notice/Messages */
+.appearance_page_paper-wp-theme-settings .notice {
+    margin: 0 0 20px 0;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-left: 4px solid #1890ff;
+    box-shadow: none;
+}
+
+.appearance_page_paper-wp-theme-settings .notice-success {
+    border-left-color: #52c41a;
+}
+
+.appearance_page_paper-wp-theme-settings .notice-error {
+    border-left-color: #f5222d;
+}

@@ -1,0 +1,131 @@
+/*
+ * ===========================================
+ * 栅格系统 - 响应式布局核心
+ * ===========================================
+ *
+ * 📐 栅格系统设计
+ *   - 12列栅格系统: 灵活的12列布局系统
+ *   - 响应式断点: 移动端、平板、桌面端适配
+ *   - 容器系统: 最大宽度限制和居中对齐
+ *   - 列间距: 统一的列间距和边距系统
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+/* ===== 容器系统 ===== */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ===== 行系统 ===== */
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.row::before,
+.row::after {
+  content: " ";
+  display: table;
+}
+
+.row::after {
+  clear: both;
+}
+
+/* ===== 列系统 ===== */
+[class*="col-"] {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+}
+
+/* 移动端列 (默认) */
+.col-mb-1 { width: 8.33333333%; }
+.col-mb-2 { width: 16.66666667%; }
+.col-mb-3 { width: 25%; }
+.col-mb-4 { width: 33.33333333%; }
+.col-mb-5 { width: 41.66666667%; }
+.col-mb-6 { width: 50%; }
+.col-mb-7 { width: 58.33333333%; }
+.col-mb-8 { width: 66.66666667%; }
+.col-mb-9 { width: 75%; }
+.col-mb-10 { width: 83.33333333%; }
+.col-mb-11 { width: 91.66666667%; }
+.col-mb-12 { width: 100%; }
+
+/* 桌面端列 */
+@media (min-width: 768px) {
+  .col-1 { width: 8.33333333%; }
+  .col-2 { width: 16.66666667%; }
+  .col-3 { width: 25%; }
+  .col-4 { width: 33.33333333%; }
+  .col-5 { width: 41.66666667%; }
+  .col-6 { width: 50%; }
+  .col-7 { width: 58.33333333%; }
+  /* .col-8 { width: 66.66666667%; }真实数值*/
+  .col-8 { width: 69.66666667%; }  /* 增大3% */
+  .col-9 { width: 75%; }
+  .col-10 { width: 83.33333333%; }
+  .col-11 { width: 91.66666667%; }
+  .col-12 { width: 100%; }
+}
+
+/* ===== 偏移系统 ===== */
+/*.col-offset-1 { margin-left: 8.33333333%; }真实数值*/
+.col-offset-1 { margin-left: 5.33333333%; }/*减少3%*/
+.col-offset-2 { margin-left: 16.66666667%; }
+.col-offset-3 { margin-left: 25%; }
+.col-offset-4 { margin-left: 33.33333333%; }
+.col-offset-5 { margin-left: 41.66666667%; }
+.col-offset-6 { margin-left: 50%; }
+.col-offset-7 { margin-left: 58.33333333%; }
+.col-offset-8 { margin-left: 66.66666667%; }
+.col-offset-9 { margin-left: 75%; }
+.col-offset-10 { margin-left: 83.33333333%; }
+.col-offset-11 { margin-left: 91.66666667%; }
+
+/* ===== 清除浮动工具类 ===== */
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ===== 响应式显示控制 ===== */
+.kit-hidden-tb {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .kit-hidden-tb {
+    display: none;
+  }
+}
+
+.kit-hidden-mb {
+    display: none;
+  }
+
+@media (min-width: 768px) {
+  .kit-hidden-mb {
+    display: block;
+  }
+}

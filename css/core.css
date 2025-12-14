@@ -1,0 +1,822 @@
+/* 基础样式 - 主题核心样式定义 */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: 87.5%
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none
+}
+
+a:hover,
+a:active,
+#rss li:hover i {
+  color: var(--color-link-hover);
+}
+
+a:focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+/* 基础代码样式已移至 markdown.css 统一管理 */
+
+/*
+blockquote {
+  margin: 1em 0;
+  padding: 0.5em 0 0.5em 1em;
+  border-left: 4px solid var(--color-border-blockquote);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-blockquote);
+}
+*/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 5px 10px;
+  border: 1px solid var(--color-border);
+}
+
+table th {
+  background: var(--color-bg-table-header);
+  white-space: nowrap;
+}
+
+table tbody tr:nth-child(2n) {
+  background-color: var(--color-bg-table-row-even);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: var(--color-bg-input);
+  color: var(--color-text);
+}
+
+button {
+  padding: 5px;
+  border: 1px solid var(--color-border-light);
+  background-color: var(--color-bg-button);
+  color: var(--color-text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+img {
+  filter: var(--image-filter);
+}
+
+/* .clearfix 类已移至 grid.css 统一管理 */
+
+.post-meta a,
+.widget a,
+.comment-content a {
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none !important;
+}
+
+.widget-list a {
+  border-bottom: none !important;
+}
+
+/* 只对段落内的直接链接应用下划线样式 */
+.post-content>p:not(.more)>a:not(.excerpt-image-link) {
+  position: relative;
+  display: inline-block;
+  color: var(--color-link-post);
+}
+
+.post-content>p:not(.more)>a:not(.excerpt-image-link):after {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 0;
+  border-bottom: 0.1rem solid var(--color-link-post-underline);
+  content: '';
+  transition: width 350ms, left 350ms;
+}
+
+.post-content>p:not(.more)>a:not(.excerpt-image-link):hover::after {
+  left: 0;
+  width: 100%;
+  transition: width 350ms;
+}
+
+/* 排除代码块和列表容器内的链接样式，避免横线影响 */
+.code-block-container a,
+.code-block-container a::after,
+.code-block-container a:hover::after,
+.shortcode-code-container a,
+.shortcode-code-container a::after,
+.shortcode-code-container a:hover::after,
+pre a,
+pre a::after,
+pre a:hover::after,
+code a,
+code a::after,
+code a:hover::after,
+.markdown-list a,
+.markdown-list a::after,
+.markdown-list a:hover::after,
+.markdown-list-item a,
+.markdown-list-item a::after,
+.markdown-list-item a:hover::after,
+.post-content ul a,
+.post-content ul a::after,
+.post-content ul a:hover::after,
+.post-content ol a,
+.post-content ol a::after,
+.post-content ol a:hover::after,
+.post-content li a,
+.post-content li a::after,
+.post-content li a:hover::after,
+.post-content ul,
+.post-content ol,
+.post-content li,
+.markdown-list,
+.markdown-list-item {
+  border-bottom: none !important;
+  text-decoration: none !important;
+}
+
+.markdown-list a,
+.markdown-list-item a,
+.post-content ul a,
+.post-content ol a,
+.post-content li a {
+  border-bottom: none !important;
+  content: none !important;
+  position: static !important;
+  display: inline !important;
+}
+
+.markdown-list a::after,
+.markdown-list-item a::after,
+.post-content ul a::after,
+.post-content ol a::after,
+.post-content li a::after,
+.markdown-list a:hover::after,
+.markdown-list-item a:hover::after,
+.post-content ul a:hover::after,
+.post-content ol a:hover::after,
+.post-content li a:hover::after {
+  border-bottom: none !important;
+  content: none !important;
+}
+
+.post-meta a:hover,
+.widget a:hover,
+.comment-content a:hover {
+  border-bottom-color: transparent;
+}
+
+.browsehappy {
+  padding: 8px 0;
+  background: var(--color-bg-browsehappy);
+  color: var(--color-text-browsehappy);
+  text-align: center;
+}
+
+.browsehappy a {
+  color: var(--color-text-browsehappy);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+
+.footnote-ref::before {
+  content: '[';
+}
+
+.footnote-ref::after {
+  content: ']';
+}
+
+.post-content hr,
+.comment-content hr {
+  width: 100px;
+  margin: 2em auto;
+  border: 2px 0 0 0 solid var(--color-border-light);
+}
+
+/* 图片对齐样式已移至 image.css 统一管理 */
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.sr-only,
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  clip: auto;
+  overflow: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.expired-notice {
+  padding: 5px 10px 10px;
+  background-color: #fdf6ec;
+  color: #e6a23c;
+  border-radius: 2px;
+}
+
+.expired-notice em {
+  padding: 0 5px;
+  font-size: 1.5em;
+  font-style: normal;
+}
+
+
+/*
+ * =================================================================
+ * AI 摘要模块样式 (2025-10-19)
+ * =================================================================
+ */
+
+/* AI摘要样式 - 仿引用块风格 */
+.ai-summary-block {
+  margin: 1.5em 0;
+  padding: 1em 1.5em;
+  border-left: 4px solid var(--color-link);
+  background-color: var(--color-bg-blockquote);
+  color: var(--color-text-muted);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s ease;
+}
+
+.ai-summary-block:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ai-summary-block strong {
+  color: var(--color-link);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  font-style: normal;
+}
+
+.ai-summary-block p {
+  margin: 0;
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+.ai-internal-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  font-weight: 600;
+  font-style: normal;
+  transition: all 0.3s ease;
+}
+
+.ai-internal-link:hover {
+  color: #0056b3;
+  /* 深色链接色，可替换为变量 */
+  text-decoration: none;
+  background-color: rgba(0, 124, 186, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/*
+ * =================================================================
+ * 赞助二维码弹窗样式 (2025-10-20)
+ * =================================================================
+ */
+
+/* 赞助二维码模块样式 */
+.sponsor-qr {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.sponsor-title {
+  font-size: 0.9em;
+  color: var(--color-text-muted, #666);
+  margin-bottom: 0.5em;
+}
+
+.sponsor-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.sponsor-icons>div {
+  position: relative;
+  cursor: pointer;
+}
+
+.sponsor-icons img {
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.sponsor-icons img:hover {
+  opacity: 0.8;
+}
+
+.qr-popup {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px;
+  z-index: 99999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.qr-popup.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.qr-popup img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+
+/* ===== 底部版权 ===== */
+#footer {
+  padding: 3em 0;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.error-page {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* ===== 打赏 ===== */
+.support-author {
+  position: relative;
+  text-align: center;
+}
+
+.support-author .support-btn {
+  display: inline-block;
+  padding: 8px 25px;
+  border: none;
+  background-color: var(--color-bg-support-btn);
+  color: var(--color-text-support-btn);
+  border-radius: 2px;
+}
+
+.support-btn:hover~.support-content {
+  display: block;
+}
+
+.support-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  right: 0;
+}
+
+/* ===== 导航 ===== */
+.navbar {
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+.navbar .nav-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.navbar .nav-list li {
+  display: block;
+  float: left;
+  margin-right: -1px;
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+}
+
+.navbar .nav-list a {
+  display: block;
+  height: 32px;
+  padding: 0 15px;
+  line-height: 32px;
+  color: var(--color-text);
+  text-decoration-line: none;
+}
+
+.navbar .nav-list a:hover,
+.navbar .nav-list .current {
+  background: var(--color-bg-hover);
+}
+
+.navbar label,
+.navbar .nav-toggle {
+  display: none;
+}
+
+/* ===== 音乐播放器 (aplayer) ===== */
+.aplayer {
+  box-shadow: none;
+}
+
+.aplayer .aplayer-lrc:before,
+.aplayer .aplayer-lrc:after {
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.aplayer.aplayer-withlrc .aplayer-info {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.aplayer .aplayer-list ol {
+  background-color: var(--color-bg);
+}
+
+.aplayer .aplayer-list ol li {
+  border-top: 1px solid var(--color-border);
+}
+
+.aplayer .aplayer-list ol li:hover,
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: var(--color-bg-secondary);
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+  background: var(--color-bg-secondary);
+}
+
+.article-meta-hr {
+  margin: 5px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ===== 现代化Toggle按钮样式 ===== */
+
+.modern-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-toggle-btn:hover {
+  border-color: #007cba;
+  background: #f8f9ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 186, 0.15);
+}
+
+.modern-toggle-btn.active {
+  background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+  border-color: #007cba;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 186, 0.3);
+}
+
+.modern-toggle-btn.active:hover {
+  background: linear-gradient(135deg, #005a87 0%, #004466 100%);
+  box-shadow: 0 6px 16px rgba(0, 123, 186, 0.4);
+}
+
+.toggle-slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modern-toggle-btn.active .toggle-slider {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modern-toggle-btn.active .toggle-slider::before {
+  left: 22px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.modern-toggle-btn.active .toggle-text {
+  color: white;
+}
+
+/* 按钮点击时的涟漪效果 */
+.modern-toggle-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 123, 186, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  pointer-events: none;
+}
+
+.modern-toggle-btn:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 深色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .modern-toggle-btn {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #a0aec0;
+  }
+
+  .modern-toggle-btn:hover {
+    border-color: #63b3ed;
+    background: #2d3748;
+  }
+
+  .modern-toggle-btn.active {
+    background: linear-gradient(135deg, #63b3ed 0%, #3182ce 100%);
+    border-color: #63b3ed;
+    color: white;
+  }
+
+  .modern-toggle-btn.active:hover {
+    background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+  }
+
+  .toggle-slider {
+    background: #4a5568;
+  }
+
+  .modern-toggle-btn.active .toggle-slider {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .modern-toggle-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .toggle-slider {
+    width: 40px;
+    height: 22px;
+  }
+
+  .toggle-slider::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modern-toggle-btn.active .toggle-slider::before {
+    left: 20px;
+  }
+}
+
+/* ===== 广告容器样式 ===== */
+
+/* 头部广告容器 */
+.header-banner {
+  width: 100% !important;
+  max-width: 1200px !important;
+  /* 限制最大宽度 */
+  height: 90px !important;
+  /* 固定高度 */
+  max-height: 90px !important;
+  /* 限制最大高度 */
+  box-sizing: border-box !important;
+  margin: 0 auto 20px auto !important;
+  /* 居中显示，减少下边距 */
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 文章底部广告容器 */
+.article-footer {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 20px 0 !important;
+  padding: 0 20px !important;
+  overflow: hidden !important;
+}
+
+/* 侧边栏广告容器 */
+.widget-space {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.header-banner img,
+.article-footer img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 侧边栏广告图片 */
+.widget-space img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.header-banner a,
+.article-footer a {
+  display: block !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* 侧边栏广告链接 */
+.widget-space a {
+  display: block !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+
+/* 强制图片适应容器 */
+.header-banner img {
+  width: 100% !important;
+  height: 90px !important;
+  /* 固定高度 */
+  max-width: 100% !important;
+  max-height: 90px !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  object-fit: cover !important;
+  /* 覆盖整个容器，保持比例 */
+}
+
+/*
+ * 强制修复栅格系统内的广告容器溢出问题
+ * 此规则确保容器严格遵守其在栅格列内的边界
+*/
+.container .row .col-12 .header-banner {
+  width: 100%;
+  margin: 0 0 20px 0 !important;
+  /* 添加下边距 */
+  padding-left: 0;
+  padding-right: 0;
+  /* 确保其子元素（特别是广告代码里的元素）不会造成意外的横向滚动或溢出 */
+  overflow: hidden;
+}
+
+/*
+ * 进一步约束广告代码内可能存在的图片或iframe
+ * 这是为了应对广告代码内部元素不规范的情况
+*/
+.header-banner>* {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/** 鼠标样式 开始**/
+/** 全局强制使用自定义指针，覆盖默认的小手样式 **/
+body,
+a,
+button,
+input,
+textarea,
+select,
+.btn,
+.button {
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAAEEfUpiAAAAAXNSR0IArs4c6QAAArtJREFUWAntV01rGlEUHWuibcU2TVPTRonJpiL2a1FbaEtpAvobanGnIK4qKQjuhP4GseDWjYuii9CNiyJCN134segiJGlAcKELQWJDFZmeM+0TDRM/ppVuvHCceXfuPXPvfe/dN0qSmmxvb8vn9cvnFWPGFouF/pcHJjIEA/1AoXoTjUZpdfGbyFssFuVAIDDKP0Q34R1DlppuN/D+t+M87Qyy0Wh8VjO6RKVer5cymcyrXq/XUjPahPIxQOMlNQOdmvLf6wxI9SloNVdUKYXb7ZYPDg4+gMgwbYwiQRKcCCedTicdHh4emc3mB9D9EPpxVyWCVqvVgNET4CHwHHADJmCirMDiHnB1ouXCQLUCunq9/gZPrqg+nUK5zN7Rbre7sOVsiLUxhetvEwMJuCmPj4/ZNdYAZR9OyzAgIEmhUJB3d3fts5CMEJAklUrJ8Xicm3zi5hrpAHCUut2uVCqVpEgk8nV9ff1FOBz+AiKmdqEoEfh8PtnpdL6G1X2Ae+AlwFQmikKQTqeTsBQFZOiMbmIKZF8yGo13cbUBM1WfzkL4Js3OgmRx1ViB4XnmLvxvM8FAVrCpe/1+/zSfz7O/XAO4GGduD/CZWXiQbYq2srOzw/O+Xy6X30O/CvALZq6BMAC7CIAdhXC5XHKlUpFrtdrHra2t27AxAnOZJtUARCA2m03OZrMyDt5SMBh0Igi2/+H1g6E2mSobtshQKCQ5HI5H+Jb9dnZ2dpRIJNjteOr/VSBiXlmBO5iCE/RgJZVYLCZ5vd5KMpncR5u9brVa1/7I6g2IyWQy5HK5d36//xMcToGxPVshHfMzmAKPxyM3m82fOAj2YM/efhNgpmaAhyZbNqO8BVA3cqhgrEm4yjc6nc73arW6j/tnHANzW3TgVkRMAdcCM+H/DOr4iUD0gYUsKrCowFwr8AukF+p8blYsTwAAAABJRU5ErkJggg==), default !important;
+}
+
+/** 鼠标样式 结束**/

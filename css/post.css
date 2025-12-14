@@ -1,0 +1,739 @@
+/*
+ * ===========================================
+ * 文章样式 - 文章内容和列表样式
+ * ===========================================
+ *
+ * 📝 文章内容设计
+ *   - 文章标题: 层级化的标题样式
+ *   - 文章元信息: 发布时间、分类、评论数等
+ *   - 文章内容: 正文排版和内容样式
+ *   - 文章摘要: 首页文章列表摘要样式
+ *
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+/* ===== 文章 ===== */
+.post {
+  padding: 20px 0;
+  position: relative;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.post:first-of-type {
+  padding-top: 30px;
+}
+
+.post:last-of-type {
+  border-bottom: none;
+}
+
+/* 首页文章列表标题样式 */
+.post .post-title {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  /* text-xl */
+  font-weight: 500;
+  /* font-medium */
+  line-height: 1.75rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+  /* text-gray-700 */
+}
+
+.post .post-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.post-title a:hover {
+  color: var(--color-link-hover);
+  /* text-gray-900 */
+  text-decoration: none;
+}
+
+/* Sticky Post Badge */
+.sticky-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0px 3px;
+  background-color: #ff6b6b;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: normal;
+  vertical-align: middle;
+  line-height: 1.5;
+  transform: translateY(-2px);
+}
+
+/* 暗主题下置顶标识 - 降低饱和度 */
+[data-theme="dark"] .sticky-badge {
+  background-color: #8b5a5a;
+  color: #e0e0e0;
+}
+
+/* Private Post Badge - 密码保护文章标识 */
+.private-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0px 3px;
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: normal;
+  vertical-align: middle;
+  line-height: 1.5;
+  transform: translateY(-2px);
+}
+
+/* 暗主题下私密标识 - 降低饱和度 */
+[data-theme="dark"] .private-badge {
+  background-color: #5a7a8b;
+  color: #e0e0e0;
+}
+
+/* Secret Post Badge - 绝密文章标识 */
+.private-badge-secret {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0px 3px;
+  background-color: #8e44ad;
+  /* 紫色背景 */
+  color: #fff;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: normal;
+  vertical-align: middle;
+  line-height: 1.5;
+  transform: translateY(-2px);
+}
+
+/* 暗主题下绝密标识 */
+[data-theme="dark"] .private-badge-secret {
+  background-color: #6c3483;
+  color: #e0e0e0;
+}
+
+/* Single Post Page Styling - Centered Title and Meta */
+.single .post .post-title {
+  text-align: center;
+  font-size: 1.5rem;
+  /* md:text-2xl */
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: var(--color-text-secondary);
+}
+
+.single .post .post-title a {
+  color: #3354aa;
+}
+
+/* 暗主题下文章详情页标题 */
+[data-theme="dark"] .single .post .post-title {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .single .post .post-title a {
+  color: var(--color-link);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 12px 0;
+  padding: 0;
+  color: var(--color-text-muted);
+  font-size: 0.875em;
+  line-height: 1.5;
+}
+
+.post-meta li {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0;
+  padding: 0;
+  color: var(--color-text-muted);
+}
+
+.post-meta li:last-child {
+  margin-right: 0;
+}
+
+.post-meta li:first-child {
+  margin-left: 0;
+  padding-left: 0;
+  border: none;
+}
+
+.post-meta li::after {
+  content: ' / ';
+  margin: 0 3px;
+  color: var(--color-border-medium);
+}
+
+.post-meta li:last-child::after {
+  content: '';
+  margin-left: 0;
+}
+
+.post-meta a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  border-bottom: none;
+  transition: color 0.3s ease;
+}
+
+.post-meta a:hover {
+  color: #3354aa;
+}
+
+/* SVG 图标样式 */
+.post-meta svg {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  vertical-align: middle;
+  margin-right: 4px;
+  opacity: 0.7;
+}
+
+.post-meta li:hover svg {
+  opacity: 1;
+}
+
+#recommend-post-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+#recommend-post-button svg {
+  margin-right: 4px;
+  /* 恢复按钮内 SVG 的右边距 */
+
+}
+
+
+
+.post-content,
+.related-posts ul,
+.random-post ul {
+  line-height: 1.8;
+  margin-top: 0;
+  color: #444;
+  font-size: 1em;
+  word-wrap: break-word;
+}
+
+.post-content p {
+  margin: 0 0 0.8em 0;
+  line-height: 1.8;
+}
+
+.post-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* 列表样式优化 */
+.post-content ol,
+.post-content ul {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.post-content li {
+  margin-bottom: 0.05em;
+  line-height: 1.8;
+}
+
+.post .tags {
+  clear: both;
+}
+
+.post-near {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+  color: var(--color-text-light);
+}
+
+.post-near li {
+  margin: 10px 0;
+}
+
+.archive-title {
+  color: var(--color-text-light);
+  margin: 0.83em 0 0;
+  font-size: 1.4em;
+  text-align: center;
+}
+
+.more {
+  text-align: center;
+  margin-top: 15px;
+  padding-top: 0;
+}
+
+.more a {
+  display: inline-block;
+  padding: 0;
+  color: #3354aa;
+  font-size: 0.875em;
+  text-decoration: none;
+  border: none;
+  transition: color 0.3s ease;
+}
+
+.more a:hover {
+  color: #2a4488;
+}
+
+/* 暗主题下阅读剩余链接 */
+[data-theme="dark"] .more a {
+  color: var(--color-link);
+}
+
+[data-theme="dark"] .more a:hover {
+  color: var(--color-link-hover);
+}
+
+/* 密码保护文章表单样式 */
+.post-password-form {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.password-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.password-form-row label {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.password-form-row input[type="password"] {
+  width: 200px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.password-form-row input[type="password"]:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.password-form-row input[type="submit"] {
+  padding: 6px 20px;
+  background-color: transparent;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.password-form-row input[type="submit"]:hover {
+  background-color: var(--color-bg-hover);
+  border-color: var(--color-text-muted);
+}
+
+/* 响应式：移动端密码表单垂直排列 */
+@media (max-width: 480px) {
+  .password-form-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .password-form-row input[type="password"] {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+
+/* ===== 翻页 ===== */
+.page-navigator {
+  list-style: none;
+  margin: 25px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.page-navigator li {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+.page-navigator a {
+  display: inline-block;
+  height: 30px;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.page-navigator a:hover {
+  background: var(--color-bg-hover);
+  text-decoration: none;
+}
+
+.page-navigator .current a {
+  background: var(--color-bg-page-nav-current);
+  color: var(--color-text-page-nav-current);
+}
+
+/* 自定义分页样式 */
+.navigation.pagination {
+  margin: 25px 0;
+  text-align: center;
+}
+
+.navigation.pagination .nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.navigation.pagination .page-numbers {
+  display: inline-block;
+  margin: 0 4px;
+  text-decoration: none;
+}
+
+.navigation.pagination .page-numbers.current {
+  font-weight: bold;
+}
+
+.navigation.pagination .page-numbers.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ===========================================
+   文章元信息样式 - Article Meta Styles
+   ===========================================
+
+   包含文章标签、分类、赞助信息和导航的样式
+   从article-meta.php中分离出来的内联样式
+*/
+
+#blog_post_info_block {
+  margin: 20px 0;
+}
+
+/* 文章标签和分类样式 */
+.detail-post-tags {
+  margin-bottom: 5px;
+}
+
+.detail-post-tags .categories {
+  margin: 0 0 2px 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.detail-post-tags .categories a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.detail-post-tags .categories a:hover {
+  text-decoration: underline;
+}
+
+.detail-post-tags .tags {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.detail-post-tags .tags a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+.detail-post-tags .tags a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* 文章元信息分隔线 */
+.article-meta-hr {
+  margin: 20px 0 5px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* 右侧元信息样式 */
+.article-meta-right {
+  margin: 0 0 20px 0;
+}
+
+.article-meta-right .post-meta {
+  justify-content: flex-end;
+  /* 覆盖默认的居中对齐 */
+}
+
+.article-meta-right .post-meta li {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 0.875em;
+  color: var(--color-text-secondary);
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.article-meta-right .post-meta li:first-child {
+  margin-left: 0;
+}
+
+.article-meta-right .post-meta li a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.article-meta-right .post-meta li a:hover {
+  color: #3354aa;
+}
+
+/* 点赞按钮样式 - 适应 li 结构 */
+#recommend-post-button {
+  cursor: pointer;
+  color: #e74c3c;
+  transition: color 0.2s ease;
+}
+
+#recommend-post-button:hover {
+  color: #c0392b;
+}
+
+#recommend-post-button svg {
+  margin-right: 4px;
+}
+
+/* 上下篇文章导航 */
+#post_next_prev {
+  margin-top: 30px;
+}
+
+.post-near {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.post-near li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.post-near li a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.post-near li a:hover {
+  color: var(--color-link);
+  text-decoration: underline;
+}
+
+.post-near li span {
+  color: var(--color-text-light);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .sponsor-icons {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .article-meta-right {
+    text-align: left;
+  }
+
+  .article-meta-right .post-meta li {
+    display: inline-block;
+    margin-left: 12px;
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .article-meta-right .post-meta li:first-child {
+    margin-left: 0;
+  }
+}
+
+/*
+ * =================================================================
+ * AI 摘要模块样式 (2025-10-19)
+ * =================================================================
+ */
+
+/* AI摘要样式 - 仿引用块风格 */
+.ai-summary-block {
+  margin: 1.5em 0;
+  padding: 1em 1.5em;
+  border-left: 4px solid var(--color-link);
+  background-color: var(--color-bg-blockquote);
+  color: var(--color-text-muted);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s ease;
+}
+
+.ai-summary-block:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ai-summary-block strong {
+  color: var(--color-link);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  font-style: normal;
+}
+
+.ai-summary-block p {
+  margin: 0;
+  font-style: normal;
+  color: var(--color-text-muted);
+}
+
+/* AI摘要暗主题适配 - 文字颜色与正文一致 */
+[data-theme="dark"] .ai-summary-block {
+  background-color: #2a2a2a;
+  border-left-color: var(--color-link);
+  color: var(--color-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .ai-summary-block:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .ai-summary-block strong {
+  color: var(--color-link);
+}
+
+[data-theme="dark"] .ai-summary-block p {
+  color: var(--color-text);
+}
+
+.ai-internal-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  font-weight: 600;
+  font-style: normal;
+  transition: all 0.3s ease;
+}
+
+.ai-internal-link:hover {
+  color: #0056b3;
+  /* 深色链接色，可替换为变量 */
+  text-decoration: none;
+  background-color: rgba(0, 124, 186, 0.1);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/*
+ * =================================================================
+ * 赞助二维码弹窗样式 (2025-10-20)
+ * =================================================================
+ */
+
+/* 赞助二维码模块样式 */
+.sponsor-qr {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.sponsor-title {
+  font-size: 0.9em;
+  color: var(--color-text-muted, #666);
+  margin-bottom: 0.5em;
+}
+
+.sponsor-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.sponsor-icons>div {
+  position: relative;
+  cursor: pointer;
+}
+
+.sponsor-icons img {
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.sponsor-icons img:hover {
+  opacity: 0.8;
+}
+
+.qr-popup {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 10px;
+  z-index: 99999;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.qr-popup.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.qr-popup img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  max-width: 100%;
+}

@@ -1,0 +1,671 @@
+/*
+ * ===========================================
+ * Shortcode样式 - 短代码组件样式文件
+ * ===========================================
+ *
+ * 🎯 功能说明
+ *   - 专门处理WordPress短代码的显示样式
+ *   - 支持所有内置短代码的样式定义
+ *   - 适配Barepaper主题的设计系统
+ *
+ * 🔧 支持的短代码
+ *   - [alert]: 警告提示框样式
+ *   - [code]: 代码语法高亮块
+ *   - [quote]: 引用块样式
+ *   - [button]: 按钮样式
+ *   - 其他自定义短代码样式
+ *
+ * @author wangdaodao
+ * @version 1.0.0
+ * @date 2025-10-23
+ */
+
+
+/* ===== 复制按钮功能 ===== */
+.copy-code-btn.copied {
+    background: rgba(82, 196, 26, 0.8) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    width: auto !important;
+}
+
+.copy-code-btn.copy-failed {
+    background: rgba(255, 77, 79, 0.8) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    padding: 4px 8px !important;
+    width: auto !important;
+}
+
+
+/* Alert 警告框样式  随内容改变宽度 - 参考 quote 模块的简洁样式 - 默认无间距 */
+.custom-container {
+    margin: 0 !important;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    border-left: 3px solid #1890ff;
+    background: linear-gradient(135deg, #e6f7ff 0%, #ffffff 100%);
+    width: fit-content;
+    max-width: 100%;
+    padding: 6px 15px 6px 15px !important;
+}
+
+/* Alert容器前后有内容时才有间距 - 减小间距 */
+*+.custom-container {
+    margin-top: 0.5rem !important;
+}
+
+.custom-container+* {
+    margin-top: 0.5rem !important;
+}
+
+/* Alert容器后紧跟段落时，确保有间距显示（编辑器有换行时） */
+.custom-container+.markdown-paragraph {
+    margin-top: 0.5rem !important;
+}
+
+.custom-container .title {
+    padding: 0 !important;
+    margin: 0 0 2px 0 !important;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.2 !important;
+    display: block !important;
+}
+
+.custom-container .content {
+    padding: 0 !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+    color: rgba(0, 0, 0, 0.85);
+    text-align: left !important;
+    display: block !important;
+}
+
+/* 移除所有内部元素的空白 */
+.custom-container .content *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.custom-container .content *:last-child {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* 移除 custom-container 内的空段落标签 */
+.custom-container>p.markdown-paragraph:empty,
+.custom-container>p:empty,
+.custom-container p.markdown-paragraph:empty,
+.custom-container .content+p.markdown-paragraph:empty,
+.custom-container .content+p:empty,
+.custom-container p.markdown-paragraph:only-child:empty,
+.custom-container>p.markdown-paragraph:last-child:empty,
+.custom-container>p:last-child:empty,
+.custom-container p:empty,
+.custom-container>p:last-of-type:empty,
+.custom-container p:last-of-type:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+    border: none !important;
+}
+
+/* 移除 custom-container 闭合标签前的空段落 */
+.custom-container p.markdown-paragraph:empty:last-of-type,
+.custom-container p:empty:last-of-type,
+.custom-container>p.markdown-paragraph:empty,
+.custom-container>p:empty,
+/* 特别处理：移除 .content div 后紧跟的空段落 */
+.custom-container .content+p.markdown-paragraph:empty,
+.custom-container .content~p.markdown-paragraph:empty:first-of-type,
+.custom-container .content~p:empty:first-of-type,
+.custom-container .content+p:empty {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    border: none !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+}
+
+/* 移除 custom-container 后的空段落（如果在容器外部） */
+.custom-container+p.markdown-paragraph:empty,
+.custom-container+p:empty,
+.custom-container~p.markdown-paragraph:empty:first-of-type,
+.custom-container~p:empty:first-of-type {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    line-height: 0 !important;
+    visibility: hidden !important;
+    overflow: hidden !important;
+}
+
+.custom-container .content p,
+.custom-container .content .markdown-paragraph,
+.custom-container .content div:not(.custom-container),
+.custom-container .content span,
+.custom-container .content * {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: inherit !important;
+}
+
+.custom-container .content.center {
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.custom-container.success {
+    border-left-color: #52c41a;
+    background: linear-gradient(135deg, #f6ffed 0%, #ffffff 100%);
+}
+
+.custom-container.alert {
+    border-left-color: #faad14;
+    background: linear-gradient(135deg, #fffbe6 0%, #ffffff 100%);
+}
+
+.custom-container.error {
+    border-left-color: #ff4d4f;
+    background: linear-gradient(135deg, #fff2f0 0%, #ffffff 100%);
+}
+
+/* 暗主题样式 */
+[data-theme="dark"] .custom-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .custom-container.success {
+    background: linear-gradient(135deg, #1a2e1a 0%, #2b3d2b 100%);
+}
+
+[data-theme="dark"] .custom-container.alert {
+    background: linear-gradient(135deg, #2e2a1a 0%, #3d3a2b 100%);
+}
+
+[data-theme="dark"] .custom-container.error {
+    background: linear-gradient(135deg, #2e1a1a 0%, #3d2b2b 100%);
+}
+
+/* Button 按钮包装器样式 - 内联元素，不产生块级间距 */
+.paper-btn-wrapper {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    vertical-align: baseline !important;
+}
+
+/* 确保按钮前后没有额外间距 */
+.paper-btn-wrapper+*,
+*+.paper-btn-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Button 按钮样式 - 覆盖所有可能的样式冲突 */
+.paper-btn,
+body .paper-btn,
+.post .paper-btn,
+.content .paper-btn,
+.entry-content .paper-btn,
+.post-content .paper-btn,
+.entry-content .paper-btn,
+.single .paper-btn,
+.page .paper-btn,
+.archive .paper-btn,
+.search .paper-btn,
+.category .paper-btn,
+.tag .paper-btn {
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    border-radius: 4px !important;
+    transition: all 0.3s ease !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+    border: none !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    position: static !important;
+    float: none !important;
+    clear: none !important;
+}
+
+body .paper-btn.btn-primary,
+.post .paper-btn.btn-primary,
+.content .paper-btn.btn-primary,
+.entry-content .paper-btn.btn-primary {
+    background-color: #4a90e2 !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-primary:hover,
+.post .paper-btn.btn-primary:hover,
+.content .paper-btn.btn-primary:hover,
+.entry-content .paper-btn.btn-primary:hover {
+    background-color: #357abd !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-secondary,
+.post .paper-btn.btn-secondary,
+.content .paper-btn.btn-secondary,
+.entry-content .paper-btn.btn-secondary {
+    background-color: #95a5a6 !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-secondary:hover,
+.post .paper-btn.btn-secondary:hover,
+.content .paper-btn.btn-secondary:hover,
+.entry-content .paper-btn.btn-secondary:hover {
+    background-color: #7f8c8d !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-success,
+.post .paper-btn.btn-success,
+.content .paper-btn.btn-success,
+.entry-content .paper-btn.btn-success {
+    background-color: #5cb85c !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-success:hover,
+.post .paper-btn.btn-success:hover,
+.content .paper-btn.btn-success:hover,
+.entry-content .paper-btn.btn-success:hover {
+    background-color: #4cae4c !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-warning,
+.post .paper-btn.btn-warning,
+.content .paper-btn.btn-warning,
+.entry-content .paper-btn.btn-warning {
+    background-color: #f0ad4e !important;
+    color: #212529 !important;
+}
+
+body .paper-btn.btn-warning:hover,
+.post .paper-btn.btn-warning:hover,
+.content .paper-btn.btn-warning:hover,
+.entry-content .paper-btn.btn-warning:hover {
+    background-color: #d58512 !important;
+    color: #212529 !important;
+}
+
+body .paper-btn.btn-danger,
+.post .paper-btn.btn-danger,
+.content .paper-btn.btn-danger,
+.entry-content .paper-btn.btn-danger {
+    background-color: #d9534f !important;
+    color: #fff !important;
+}
+
+body .paper-btn.btn-danger:hover,
+.post .paper-btn.btn-danger:hover,
+.content .paper-btn.btn-danger:hover,
+.entry-content .paper-btn.btn-danger:hover {
+    background-color: #c9302c !important;
+    color: #fff !important;
+}
+
+/* ===== 按钮暗主题样式 - 降低亮度 ===== */
+[data-theme="dark"] body .paper-btn.btn-primary,
+[data-theme="dark"] .post .paper-btn.btn-primary,
+[data-theme="dark"] .content .paper-btn.btn-primary,
+[data-theme="dark"] .entry-content .paper-btn.btn-primary,
+[data-theme="dark"] .post-content .paper-btn.btn-primary,
+[data-theme="dark"] .markdown-paragraph .paper-btn.btn-primary,
+[data-theme="dark"] .paper-btn.btn-primary {
+    background-color: #2d5a9a !important;
+    color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-primary:hover,
+[data-theme="dark"] .post .paper-btn.btn-primary:hover,
+[data-theme="dark"] .content .paper-btn.btn-primary:hover,
+[data-theme="dark"] .entry-content .paper-btn.btn-primary:hover,
+[data-theme="dark"] .post-content .paper-btn.btn-primary:hover,
+[data-theme="dark"] .markdown-paragraph .paper-btn.btn-primary:hover,
+[data-theme="dark"] .paper-btn.btn-primary:hover {
+    background-color: #234780 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-secondary,
+[data-theme="dark"] .post .paper-btn.btn-secondary,
+[data-theme="dark"] .content .paper-btn.btn-secondary,
+[data-theme="dark"] .entry-content .paper-btn.btn-secondary {
+    background-color: #6c7b7d !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-secondary:hover,
+[data-theme="dark"] .post .paper-btn.btn-secondary:hover,
+[data-theme="dark"] .content .paper-btn.btn-secondary:hover,
+[data-theme="dark"] .entry-content .paper-btn.btn-secondary:hover {
+    background-color: #5a6c6e !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-success,
+[data-theme="dark"] .post .paper-btn.btn-success,
+[data-theme="dark"] .content .paper-btn.btn-success,
+[data-theme="dark"] .entry-content .paper-btn.btn-success {
+    background-color: #4a934a !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-success:hover,
+[data-theme="dark"] .post .paper-btn.btn-success:hover,
+[data-theme="dark"] .content .paper-btn.btn-success:hover,
+[data-theme="dark"] .entry-content .paper-btn.btn-success:hover {
+    background-color: #3d7a3d !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-warning,
+[data-theme="dark"] .post .paper-btn.btn-warning,
+[data-theme="dark"] .content .paper-btn.btn-warning,
+[data-theme="dark"] .entry-content .paper-btn.btn-warning {
+    background-color: #d39e3e !important;
+    color: #212529 !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-warning:hover,
+[data-theme="dark"] .post .paper-btn.btn-warning:hover,
+[data-theme="dark"] .content .paper-btn.btn-warning:hover,
+[data-theme="dark"] .entry-content .paper-btn.btn-warning:hover {
+    background-color: #b8852a !important;
+    color: #212529 !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-danger,
+[data-theme="dark"] .post .paper-btn.btn-danger,
+[data-theme="dark"] .content .paper-btn.btn-danger,
+[data-theme="dark"] .entry-content .paper-btn.btn-danger {
+    background-color: #c0392b !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] body .paper-btn.btn-danger:hover,
+[data-theme="dark"] .post .paper-btn.btn-danger:hover,
+[data-theme="dark"] .content .paper-btn.btn-danger:hover,
+[data-theme="dark"] .entry-content .paper-btn.btn-danger:hover {
+    background-color: #a93226 !important;
+    color: #fff !important;
+}
+
+/* ===== 视频样式 ===== */
+.shortcode-video-wrapper {
+    margin: 1rem 0;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.shortcode-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ===== 标题样式 - 默认无间距 ===== */
+.shortcode-heading {
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: #333;
+}
+
+/* 标题后紧跟内容时才有下边距 - 进一步减小间距 */
+.shortcode-heading+* {
+    margin-top: 0.25rem !important;
+}
+
+/* 标题后紧跟段落时，确保有间距显示（编辑器有换行时） */
+.shortcode-heading+.markdown-paragraph {
+    margin-top: 0.25rem !important;
+}
+
+/* 标题前有内容时才有上边距 */
+*+.shortcode-heading {
+    margin-top: 1.5rem !important;
+}
+
+.shortcode-heading.shortcode-heading-1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #007cba;
+    padding-bottom: 0.5rem;
+}
+
+.shortcode-heading.shortcode-heading-2 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.25rem;
+}
+
+.shortcode-heading.shortcode-heading-3 {
+    font-size: 1.5rem;
+    color: #007cba;
+}
+
+.shortcode-heading.shortcode-heading-4 {
+    font-size: 1.25rem;
+    color: #28a745;
+}
+
+.shortcode-heading.shortcode-heading-5 {
+    font-size: 1.125rem;
+    color: #ffc107;
+    font-style: italic;
+}
+
+.shortcode-heading.shortcode-heading-6 {
+    font-size: 1rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===== 错误样式 ===== */
+.shortcode-error {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.875rem;
+}
+
+/* ===== 代码块容器兼容样式 ===== */
+
+/* 兼容Markdown代码块容器样式 - 用于短代码环境下的代码块显示，保持视觉效果 */
+@media (max-width: 768px) {
+
+    /* 响应式下代码块间距由通用规则控制，这里只调整视觉样式 */
+    .code-block-container {
+        /* 保持视觉样式 */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+    }
+
+    .code-block-container pre {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .code-block-container pre code {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .copy-code-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    .shortcode-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .shortcode-alert {
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .shortcode-quote {
+        padding: 0.8rem 1rem;
+    }
+
+    /* 响应式下代码块间距由通用规则控制 */
+
+    .shortcode-code-container pre .shortcode-code {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .shortcode-code-container .copy-code-btn {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.7rem;
+    }
+
+    /* 响应式下标题间距调整 */
+    *+.shortcode-heading {
+        margin-top: 1.25rem !important;
+    }
+
+    /* 响应式下标题下方间距也减小 */
+    .shortcode-heading+* {
+        margin-top: 0.2rem !important;
+    }
+
+    .shortcode-heading+.markdown-paragraph {
+        margin-top: 0.2rem !important;
+    }
+
+    .shortcode-heading.shortcode-heading-1 {
+        font-size: 1.75rem;
+    }
+
+    .shortcode-heading.shortcode-heading-2 {
+        font-size: 1.5rem;
+    }
+
+    .shortcode-heading.shortcode-heading-3 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .code-block-container pre code {
+        font-size: 13px;
+    }
+
+    .shortcode-code-container pre .shortcode-code {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shortcode-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .shortcode-alert {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.75rem;
+    }
+
+    .shortcode-quote {
+        padding: 0.625rem 1rem;
+    }
+
+    .shortcode-code-container pre .shortcode-code {
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .shortcode-code-container .copy-code-btn {
+        padding: 0.15rem 0.3rem;
+        font-size: 0.6rem;
+    }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+    .code-block-container {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .copy-code-btn {
+        display: none;
+    }
+
+    .shortcode-code-container {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .shortcode-code-container .copy-code-btn {
+        display: none;
+    }
+}
+
+/* ===== 无障碍支持 ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    .copy-code-btn,
+    .shortcode-btn,
+    .shortcode-code-container .copy-code-btn {
+        transition: none;
+    }
+}
+
+/* ===== 高对比度模式 ===== */
+@media (prefers-contrast: high) {
+
+    .custom-container,
+    .shortcode-alert {
+        border-left-width: 6px;
+    }
+
+    .paper-quote,
+    .shortcode-quote {
+        border-left-width: 6px;
+    }
+}

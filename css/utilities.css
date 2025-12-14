@@ -1,0 +1,433 @@
+/*
+ * ===========================================
+ * 工具类样式 - 通用工具类和辅助样式
+ * ===========================================
+ *
+ * 🛠️ 工具类系统
+ *   - 布局工具: 间距、对齐、显示控制等
+ *   - 文本工具: 字体大小、颜色、对齐等
+ *   - 背景工具: 背景色、背景图等
+ *   - 边框工具: 边框样式、圆角等
+ *
+ * 🎨 辅助样式
+ *   - 底部版权: 网站底部信息样式
+ *   - 错误页面: 404等错误页面样式
+ *   - 打赏功能: 赞助和打赏相关样式
+ *   - 统计信息: 博客统计数据显示样式
+ *
+ * 📱 响应式工具
+ *   - 显示控制: 不同屏幕尺寸的显示/隐藏
+ *   - 间距调整: 响应式间距和边距
+ *   - 字体缩放: 响应式字体大小调整
+ *   - 布局切换: 移动端布局适配
+ *
+ * 🔧 实用工具
+ *   - 清除浮动: clearfix等布局工具
+ *   - 文本截断: 单行和多行文本截断
+ *   - 居中布局: 各种居中布局方案
+ *   - 隐藏元素: 屏幕阅读器友好的隐藏
+ *
+ * @author wangdaodao
+ * @version 3.1.0
+ * @date 2025-01-XX
+ */
+
+/* ===== 底部版权 ===== */
+#footer {
+  padding: 3em 0;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.error-page {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* ===== 打赏 ===== */
+.support-author {
+  position: relative;
+  text-align: center;
+}
+
+.support-author .support-btn {
+  display: inline-block;
+  padding: 8px 25px;
+  border: none;
+  background-color: var(--color-bg-support-btn);
+  color: var(--color-text-support-btn);
+  border-radius: 2px;
+}
+
+.support-btn:hover ~ .support-content {
+  display: block;
+}
+
+.support-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  right: 0;
+}
+
+/* ===== 导航 ===== */
+.navbar {
+  margin: 15px 0 0;
+  padding: 0;
+}
+
+.navbar .nav-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.navbar .nav-list li {
+  display: block;
+  float: left;
+  margin-right: -1px;
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+}
+
+.navbar .nav-list a {
+  display: block;
+  height: 32px;
+  padding: 0 15px;
+  line-height: 32px;
+  color: var(--color-text);
+  text-decoration-line: none;
+}
+
+.navbar .nav-list a:hover,
+.navbar .nav-list .current {
+  background: var(--color-bg-hover);
+}
+
+.navbar label,
+.navbar .nav-toggle {
+  display: none;
+}
+
+/* ===== 音乐播放器 (aplayer) ===== */
+.aplayer {
+  box-shadow: none;
+}
+
+.aplayer .aplayer-lrc:before,
+.aplayer .aplayer-lrc:after {
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.aplayer.aplayer-withlrc .aplayer-info {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.aplayer .aplayer-list ol {
+  background-color: var(--color-bg);
+}
+
+.aplayer .aplayer-list ol li {
+  border-top: 1px solid var(--color-border);
+}
+
+.aplayer .aplayer-list ol li:hover,
+.aplayer .aplayer-list ol li.aplayer-list-light {
+  background: var(--color-bg-secondary);
+}
+
+.aplayer .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
+  background: var(--color-bg-secondary);
+}
+
+.article-meta-hr {
+  margin: 5px 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ===== 文章图片美化样式 ===== */
+
+/* 图片相册系统样式已移至 image.css 统一管理 */
+
+/* ===== 文章图片样式系统 ===== */
+
+/* .post-image 类已移至 image.css 统一管理 */
+
+
+
+/* 图片灯箱样式已移至 image.css 统一管理 */
+
+/* ===== 现代化Toggle按钮样式 ===== */
+
+.modern-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 14px;
+  font-weight: 500;
+  color: #6c757d;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.modern-toggle-btn:hover {
+  border-color: #007cba;
+  background: #f8f9ff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 123, 186, 0.15);
+}
+
+.modern-toggle-btn.active {
+  background: linear-gradient(135deg, #007cba 0%, #005a87 100%);
+  border-color: #007cba;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 186, 0.3);
+}
+
+.modern-toggle-btn.active:hover {
+  background: linear-gradient(135deg, #005a87 0%, #004466 100%);
+  box-shadow: 0 6px 16px rgba(0, 123, 186, 0.4);
+}
+
+.toggle-slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #e9ecef;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modern-toggle-btn.active .toggle-slider {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.modern-toggle-btn.active .toggle-slider::before {
+  left: 22px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.modern-toggle-btn.active .toggle-text {
+  color: white;
+}
+
+/* 按钮点击时的涟漪效果 */
+.modern-toggle-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 123, 186, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  pointer-events: none;
+}
+
+.modern-toggle-btn:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* 深色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .modern-toggle-btn {
+    background: #2d3748;
+    border-color: #4a5568;
+    color: #a0aec0;
+  }
+
+  .modern-toggle-btn:hover {
+    border-color: #63b3ed;
+    background: #2d3748;
+  }
+
+  .modern-toggle-btn.active {
+    background: linear-gradient(135deg, #63b3ed 0%, #3182ce 100%);
+    border-color: #63b3ed;
+    color: white;
+  }
+
+  .modern-toggle-btn.active:hover {
+    background: linear-gradient(135deg, #3182ce 0%, #2c5282 100%);
+  }
+
+  .toggle-slider {
+    background: #4a5568;
+  }
+
+  .modern-toggle-btn.active .toggle-slider {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .modern-toggle-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .toggle-slider {
+    width: 40px;
+    height: 22px;
+  }
+
+  .toggle-slider::before {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modern-toggle-btn.active .toggle-slider::before {
+    left: 20px;
+  }
+}
+
+/* ===== 广告容器样式 ===== */
+
+/* 头部广告容器 */
+.header-banner {
+    width: 100% !important;
+    max-width: 1200px !important; /* 限制最大宽度 */
+    height: 90px !important; /* 固定高度 */
+    max-height: 90px !important; /* 限制最大高度 */
+    box-sizing: border-box !important;
+    margin: 0 auto 20px auto !important; /* 居中显示，减少下边距 */
+    padding: 0 !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 文章底部广告容器 */
+.article-footer {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 20px 0 !important;
+    padding: 0 20px !important;
+    overflow: hidden !important;
+}
+
+/* 侧边栏广告容器 */
+.widget-space {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
+.header-banner img,
+.article-footer img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 侧边栏广告图片 */
+.widget-space img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.header-banner a,
+.article-footer a {
+    display: block !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 侧边栏广告链接 */
+.widget-space a {
+    display: block !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 强制图片适应容器 */
+.header-banner img {
+    width: 100% !important;
+    height: 90px !important; /* 固定高度 */
+    max-width: 100% !important;
+    max-height: 90px !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    object-fit: cover !important; /* 覆盖整个容器，保持比例 */
+}
+
+/*
+ * 强制修复栅格系统内的广告容器溢出问题
+ * 此规则确保容器严格遵守其在栅格列内的边界
+*/
+.container .row .col-12 .header-banner {
+    width: 100%;
+    margin: 0 0 20px 0 !important;  /* 添加下边距 */
+    padding-left: 0;
+    padding-right: 0;
+    /* 确保其子元素（特别是广告代码里的元素）不会造成意外的横向滚动或溢出 */
+    overflow: hidden;
+}
+
+/*
+ * 进一步约束广告代码内可能存在的图片或iframe
+ * 这是为了应对广告代码内部元素不规范的情况
+*/
+.header-banner > * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
